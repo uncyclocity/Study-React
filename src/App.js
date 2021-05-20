@@ -1,8 +1,6 @@
 import Hello from './Hello'
-// Hello 컴포넌트를 가져온다 (경로 지정)
-
 import './App.css'
-// css 파일을 가져온다 (경로 지정)
+import Wrapper from './Wrapper'
 
 function App() {
   const name = 'react';
@@ -17,13 +15,19 @@ function App() {
   };
 
   return (
-    <>
-    
-      {/* 컴포넌트는 여러 번 재사용이 가능하다. */}
-      {/* JSX의 태그는 항상 닫아주어야 하며, </> <- 이런식으로 태그 하나로 요약 가능하다. */}
-      <Hello />
-      <Hello />
-      <Hello />
+    // 태그의 이름이 없는 <></> 형태의 태그는 Fragment이며, 브라우저 상에서 별도의 엘리먼트로 나타나지 않는다
+    // 컴포넌트 태그 사이에 값을 넣을 경우, 해당 컴포넌트의 props.childeren을 조회할 필요가 있다()
+    <Wrapper>
+
+      {/* JSX의 태그는 항상 닫아주어야 하며, </> <- 이런식으로 태그 하나로 요약 가능하다 */}
+      {/* 컴포넌트에 어떠한 값을 전달할 때, props를 사용한다. 여러개를 전달 할 수 있다.*/}
+      <Hello name="react" color="blue"/>
+      <Hello color="skyblue"/>
+
+      {/* 컴포넌트는 여러 번 재사용이 가능하다 */}
+      {/* <Hello />
+          <Hello />
+          <Hello /> */}
 
       {/* JSX 내에 JS 변수를 보일 떄는 {}로 감싼다 */}
       <div style={style}>{name}</div>
@@ -35,7 +39,7 @@ function App() {
       // 열리는 태그 내부에서는 이렇게 주석 작성이 가능함
       />
 
-    </>
+    </Wrapper>
   );
 }
 
