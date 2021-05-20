@@ -1,6 +1,11 @@
+// 리액트 패키지에서 'useState' 라는 함수를 불러와줌
 import {useState} from 'react';
 
 function Counter() {
+    // 컴포넌트에서 동적인 값은 '상태'라고 부른다
+    // 'useState'를 이용하면 컴포넌트에서 상태 관리를 할 수 있다.
+    // 즉, 동적인 값을 조작할 수 있다는 것이다.
+    // 배열 비구조화 할당을 통해 useState 함수의 반환값인 배열에서 각 원소를 추출하였음
     const [number, setNumber] = useState(0);
 
     const onIncrease = () => {
