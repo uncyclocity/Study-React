@@ -9,11 +9,13 @@ function Counter() {
     const [number, setNumber] = useState(0);
 
     const onIncrease = () => {
-        setNumber(number + 1);
+        setNumber(number - 1);
     }
 
     const onDecrease = () => {
-        setNumber(number - 1);
+        // 함수형 업데이트 : 값을 업데이트 하는 함수를 파라미터로 넣어주었다.
+        // setNumber 함수에 파라미터로 함수를 넣어 줄 경우, 이전 값을 넣어주는 것으로 개발이 되어 있음
+        setNumber(prevNumber => prevNumber + 1);
     }
 
     return (
