@@ -1,4 +1,6 @@
-import {useState} from 'react';
+// 상태를 바꾸는 useState 함수, DOM을 참조하는 useRef 함수 import
+// Hook 들을 사용하기 위해 import해 주었다
+import {useState, useRef} from 'react';
 
 function InputSample () {
     // 각각의 input에 대해 값을 지정함
@@ -6,6 +8,9 @@ function InputSample () {
         name: '',
         nickname: ''
     }); 
+
+    // name Input DOM을 선택하기 위해 useRef 함수 사용
+    const nameInput = useRef(null);
 
     // 비구조화 할당 이용하여 각 input의 값을 추출함
     const { name, nickname } = inputs;
@@ -28,12 +33,15 @@ function InputSample () {
         setInputs({
             name: '',
             nickname: ''
-        })
+        });
+
+        nameInput.current.focus();
     };
 
     return (
         <div>
-            <input name="name" placeholder="이름" onChange={onChange} value={name}/>
+            {/* ref 속성을 통해 nameInput이 name input을 참조하도록 설정 */}
+            <input name="name" placeholder="이름" onChange={onChange} value={name} ref={nameInput}/>
             <input name="nickname" placeholder="닉네임" onChange={onChange} value={nickname}/>
             <button onClick={onReset}>초기화</button>
             <div>
