@@ -1,14 +1,21 @@
 // Array.prototype.map() 을 통해 호출되는 함수
-function User({user, onRemove}) {
+function User({user, onRemove, onToggle}) {
     return(
+        // jsx 외부에서 정의 된 event handler/callback은
+        // 파라미터를 넘겨줄 시 화살표 함수를 사용하여야 한다.
         <div>
-            <b>{user.username}</b> <span>({user.email})</span>
+            <b style={{
+                cursor: 'pointer',
+                color: user.active ? 'green' : 'black'
+            }}
+            onClick = {() => onToggle(user.id)}>{user.username}</b>
+            <span>({user.email})</span>
             <button onClick={() => onRemove(user.id)}>삭제</button>
         </div>
     )
 }
 
-function UserList({users, onRemove}) {
+function UserList({users, onRemove, onToggle}) {
     return (
         <div>
             {/* Array.prototype.map() : 각각의 요소를 순서대로 부름 (그리고 새로운 배열을 만듦)*/}
@@ -18,7 +25,7 @@ function UserList({users, onRemove}) {
                 <User user={user} key={index} />
             ))} */}
             {users.map(user => (
-                <User user={user} key={user.id} onRemove={onRemove}/>
+                <User user={user} key={user.id} onRemove={onRemove} onToggle={onToggle}/>
             ))}
         </div>
     );
