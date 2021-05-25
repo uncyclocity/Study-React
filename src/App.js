@@ -66,6 +66,12 @@ function App() {
     nextId.current += 1;
   };
 
+  const onRemove = id => {
+    // Array.prototype.filter()를 이용하여
+    // 테스트를 통과하는 배열의 요소만 쭈압쭈압 뽑아서 새 배열로 반환함
+    setUsers(users.filter(user => user.id !== id));
+  };
+
   return (
     <>
       <CreateUser 
@@ -74,7 +80,7 @@ function App() {
         username={username}
         email={email}
       />
-      <UserList users={users}/>
+      <UserList users={users} onRemove={onRemove}/>
     </>
   );
 }

@@ -1,13 +1,14 @@
 // Array.prototype.map() 을 통해 호출되는 함수
-function User({user}) {
+function User({user, onRemove}) {
     return(
         <div>
             <b>{user.username}</b> <span>({user.email})</span>
+            <button onClick={() => onRemove(user.id)}>삭제</button>
         </div>
     )
 }
 
-function UserList({users}) {
+function UserList({users, onRemove}) {
     return (
         <div>
             {/* Array.prototype.map() : 각각의 요소를 순서대로 부름 (그리고 새로운 배열을 만듦)*/}
@@ -17,7 +18,7 @@ function UserList({users}) {
                 <User user={user} key={index} />
             ))} */}
             {users.map(user => (
-                <User user={user} key={user.id}/>
+                <User user={user} key={user.id} onRemove={onRemove}/>
             ))}
         </div>
     );
