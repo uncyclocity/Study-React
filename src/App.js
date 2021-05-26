@@ -1,4 +1,4 @@
-import {useRef, useState, useMemo} from 'react';
+import {useRef, useState, useMemo, useCallback} from 'react';
 import UserList from './UserList';
 import CreateUser from './CreateUser';
 
@@ -7,6 +7,8 @@ function countActiveUsers(users) {
   return users.filter(user => user.active).length;
 }
 
+// onCallback 같은 경우는, 함수 안에서 사용하는 상태나 props(함수포함)가 있다면 deps 배열에 포함시켜야함
+// 그렇지 않으면 해당 값들의 가장 최신 값을 참조 할 것이라 보장할 수 없음
 function App() {
   // CreateUser의 입력값에 해당하는 상태들을 초기화
   const [inputs, setInputs] = useState({
@@ -18,13 +20,14 @@ function App() {
   const {username, email} = inputs;
 
   // 입력 값이 바뀐 경우 상태 변경
-  const onChange = e => {
+  const onChange = useCallback(e => {
     const {name, value} = e.target;
     setInputs({
       ...inputs,
       [name]: value
     });
-  };
+  }, [inputs]
+  );
 
   // 배열의 상태를 초기화
   const [users, setUsers] = useState([
@@ -53,7 +56,7 @@ function App() {
   const nextId = useRef(4);
 
   // 등록 버튼을 눌렀을 때 실행될 함수
-  const onCreate = () => {
+  const onCreate = useCallback(() => {
     // onChange 함수를 통해 변경된 상태값이 들어간다
     const user = {
       id: nextId.current,
@@ -72,22 +75,24 @@ function App() {
 
     // nextId 변수 +1
     nextId.current += 1;
-  };
+  }, [users, username, email]);
 
-  const onRemove = id => {
+  const onRemove = useCallback(id => {
     // Array.prototype.filter()를 이용하여
     // 테스트를 통과하는 배열의 요소만 쭈압쭈압 뽑아서 새 배열로 반환함
     setUsers(users.filter(user => user.id !== id));
-  };
+  }, [users]
+  );
 
   // 해당 id와 맞는 요소의 user.active 값을 반전시킨 배열을 반환하여 상태를 바꾼다.
-  const onToggle = id => {
+  const onToggle = useCallback(id => {
     setUsers(
       users.map(user =>
         user.id === id ? {...user, active: !user.active} : user
       )
     );
-  };
+  }, [users]
+  );
 
   // useMemo(연산 정의 함수, deps)
   // deps 배열 안의 내용이 바뀌면 첫번째 파라미터에 등록한 함수를 호출하여 값을 연산함
