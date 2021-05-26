@@ -1,6 +1,11 @@
-import {useRef, useState} from 'react';
+import {useRef, useState, useMemo} from 'react';
 import UserList from './UserList';
 import CreateUser from './CreateUser';
+
+function countActiveUsers(users) {
+  console.log('활성 사용자 수를 세는중...');
+  return users.filter(user => user.active).length;
+}
 
 function App() {
   // CreateUser의 입력값에 해당하는 상태들을 초기화
@@ -81,8 +86,12 @@ function App() {
       users.map(user =>
         user.id === id ? {...user, active: !user.active} : user
       )
-    )
-  }
+    );
+  };
+
+  // useMemo(연산 정의 함수, deps)
+  // deps 배열 안의 내용이 바뀌면 첫번째 파라미터에 등록한 함수를 호출하여 값을 연산함
+  const count = useMemo(() => countActiveUsers(users), [users]);
 
   return (
     <>
@@ -93,6 +102,7 @@ function App() {
         email={email}
       />
       <UserList users={users} onRemove={onRemove} onToggle={onToggle}/>
+      <div>활성사용자수 = {count}</div>
     </>
   );
 }

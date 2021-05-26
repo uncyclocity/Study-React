@@ -1,4 +1,4 @@
-import {useEffect} from 'react';
+// import {useEffect} from 'react';
 
 // Array.prototype.map() 을 통해 호출되는 함수
 function User({user, onRemove, onToggle}) {
@@ -25,9 +25,9 @@ function User({user, onRemove, onToggle}) {
     // }, [user]);
 
     // deps를 생략 할 경우, 리렌더링 될 때마다 호출된다.
-    useEffect(() => {
-        console.log(user);
-    });
+    // useEffect(() => {
+    //     console.log(user);
+    // });
 
     return(
         // jsx 외부에서 정의 된 event handler/callback은
