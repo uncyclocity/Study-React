@@ -1,4 +1,8 @@
+import React from 'react';
+
 function CreateUser({onChange, onCreate, username, email}) {
+    // 렌더링 확인용
+    console.log('CreateUser.js가 렌더링됨')
     return (
         <div>
             <input
@@ -18,4 +22,6 @@ function CreateUser({onChange, onCreate, username, email}) {
     );
 }
 
-export default CreateUser;
+// React.memo : 해당 컴포넌트에서 참고하고있는 prop 값이 그대로 -> 렌더링 안함
+// 단, 컴포넌트 구현에 useState, useReducer, useContext 사용 시 렌더링됨
+export default React.memo(CreateUser);

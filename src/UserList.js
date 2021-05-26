@@ -1,7 +1,8 @@
+import React from 'react';
 // import {useEffect} from 'react';
 
 // Array.prototype.map() 을 통해 호출되는 함수
-function User({user, onRemove, onToggle}) {
+const User = React.memo(function User({user, onRemove, onToggle}) {
     // 마운트, 언마운트 시 특정 작업 처리
     // useEffect(함수, 의존값 배열)
     // 배열(deps)을 비우면 컴포넌트가 처음 나타날때만 함수가 호출됨
@@ -42,9 +43,11 @@ function User({user, onRemove, onToggle}) {
             <button onClick={() => onRemove(user.id)}>삭제</button>
         </div>
     )
-}
+});
 
 function UserList({users, onRemove, onToggle}) {
+    // 렌더링 확인용
+    console.log('UserList.js가 렌더링됨')
     return (
         <div>
             {/* Array.prototype.map() : 각각의 요소를 순서대로 부름 (그리고 새로운 배열을 만듦)*/}
@@ -54,10 +57,15 @@ function UserList({users, onRemove, onToggle}) {
                 <User user={user} key={index} />
             ))} */}
             {users.map(user => (
-                <User user={user} key={user.id} onRemove={onRemove} onToggle={onToggle}/>
+                <User
+                    user={user}
+                    key={user.id}
+                    onRemove={onRemove}
+                    onToggle={onToggle}
+                />
             ))}
         </div>
     );
 }
 
-export default UserList;
+export default React.memo(UserList);

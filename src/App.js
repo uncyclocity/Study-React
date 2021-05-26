@@ -9,6 +9,7 @@ function countActiveUsers(users) {
 
 // onCallback 같은 경우는, 함수 안에서 사용하는 상태나 props(함수포함)가 있다면 deps 배열에 포함시켜야함
 // 그렇지 않으면 해당 값들의 가장 최신 값을 참조 할 것이라 보장할 수 없음
+// 다만, useState로 관리하는 값의 경우 함수형 업데이트를 쓰면 파라미터를 통해 최신 users 값을 참고할 수 있음
 function App() {
   // CreateUser의 입력값에 해당하는 상태들을 초기화
   const [inputs, setInputs] = useState({
@@ -20,14 +21,15 @@ function App() {
   const {username, email} = inputs;
 
   // 입력 값이 바뀐 경우 상태 변경
+  // + 렌더링 수를 줄이기 위해 deps에 useState로 관리하는 input을 지우고, 함수형 업데이트로 조치해 주었다.
+  // deps 값 변경이 확인되면 비동기적인 문제를 해결하기 위해 리렌더링을 진행하는데, 함수형 업데이트는 리렌더링 없이 항상 최신상태로 유지할 수 있음
   const onChange = useCallback(e => {
     const {name, value} = e.target;
-    setInputs({
+    setInputs(inputs => ({
       ...inputs,
       [name]: value
-    });
-  }, [inputs]
-  );
+    }));
+  }, []);
 
   // 배열의 상태를 초기화
   const [users, setUsers] = useState([
@@ -65,7 +67,7 @@ function App() {
     };
 
     // 배열 상태 변경
-    setUsers([...users, user]);
+    setUsers(users => ([...users, user]));
 
     // 인풋 상태 빈 값으로 초기화
     setInputs({
@@ -75,23 +77,23 @@ function App() {
 
     // nextId 변수 +1
     nextId.current += 1;
-  }, [users, username, email]);
+  }, [username, email]);
 
   const onRemove = useCallback(id => {
     // Array.prototype.filter()를 이용하여
     // 테스트를 통과하는 배열의 요소만 쭈압쭈압 뽑아서 새 배열로 반환함
-    setUsers(users.filter(user => user.id !== id));
-  }, [users]
+    setUsers(users => (users.filter(user => user.id !== id)));
+  }, []
   );
 
   // 해당 id와 맞는 요소의 user.active 값을 반전시킨 배열을 반환하여 상태를 바꾼다.
   const onToggle = useCallback(id => {
-    setUsers(
+    setUsers(users => (
       users.map(user =>
         user.id === id ? {...user, active: !user.active} : user
       )
-    );
-  }, [users]
+    ));
+  }, []
   );
 
   // useMemo(연산 정의 함수, deps)
