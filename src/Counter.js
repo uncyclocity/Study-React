@@ -1,27 +1,35 @@
-// 리액트 패키지에서 'useState' 라는 함수를 불러와줌
-import {useState} from 'react';
+// 리액트 패키지에서 'useReducer' 라는 함수를 불러와줌
+// 이를 사용하면 컴포넌트로부터 상태 업데이트 로직을 분리시킬 수 있음(컴포넌트 바깥/별개 문서도 OK)
+import {useReducer} from 'react';
+
+// 현재 상태와 액션 객체(type)를 받아, 새로운 상태를 반환하는 함수
+function reducer(state, action) {
+    switch (action.type) {
+        case 'INCREMENT':
+            return state + 1;
+        case 'DECREMENT':
+            return state - 1;
+        default:
+            return state;
+    }
+}
 
 function Counter() {
-    // 컴포넌트에서 동적인 값은 '상태'라고 부른다
-    // 'useState'를 이용하면 컴포넌트에서 상태 관리를 할 수 있다.
-    // 즉, 동적인 값을 조작할 수 있다는 것이다.
-    // 배열 비구조화 할당을 통해 useState 함수의 반환값인 배열에서 각 원소를 추출하였음
-    const [number, setNumber] = useState(0);
+    // useReducer(reducer 함수, 초기화 값)
+    const [number, dispatch] = useReducer(reducer, 0);
 
+    // dispatch : 액션을 발생시키는 함수
     const onIncrease = () => {
-        setNumber(number - 1);
-    }
+        dispatch({type: 'INCREMENT'});
+    };
 
     const onDecrease = () => {
-        // 함수형 업데이트 : 값을 업데이트 하는 함수를 파라미터로 넣어주었다.
-        // setNumber 함수에 파라미터로 함수를 넣어 줄 경우, 이전 값을 넣어주는 것으로 개발이 되어 있음
-        setNumber(prevNumber => prevNumber + 1);
-    }
+        dispatch({type: 'DECREMENT'});
+    };
 
     return (
         <div>
             <h1>{number}</h1>
-            {/* 리엑트에서 엘리먼트에 이벤트를 설정해줄 때는 on이벤트이름 = {실행할함수} 형식으로 설정해주어야 한다 */}
             <button onClick={onIncrease}>+1</button>
             <button onClick={onDecrease}>-1</button>
         </div>
