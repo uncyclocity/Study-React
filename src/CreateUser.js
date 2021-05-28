@@ -22,6 +22,6 @@ function CreateUser({onChange, onCreate, username, email}) {
     );
 }
 
-// React.memo : 해당 컴포넌트에서 참고하고있는 prop 값이 그대로 -> 렌더링 안함
-// 단, 컴포넌트 구현에 useState, useReducer, useContext 사용 시 렌더링됨
+// React.memo : 해당 컴포넌트에서 참고하고있는 prop 값이 변할 때 렌더링되며, prop 값이 변하지 않을 경우 렌더링 되지 않음
+// 단, 컴포넌트 구현에 useState, useReducer, useContext 등의 Hooks 사용을 통한 상태 변경 시 렌더링됨
 export default React.memo(CreateUser);

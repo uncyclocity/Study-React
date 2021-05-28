@@ -67,7 +67,7 @@ function reducer(state, action) {
 }
 
 function App() {
-  // 커스텀 Inputs 사용
+  // 커스텀 Hooks 사용
   const [{username, email}, onChange, reset] = useInputs({
     username: '',
     email: ''
