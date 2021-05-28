@@ -11,6 +11,9 @@ import {useReducer, useRef, useMemo, useCallback} from 'react';
 import UserList from './UserList';
 import CreateUser from './CreateUser';
 
+// hooks 폴더에 생성한 커스텀 hooks 호출
+import useInputs from './hooks/useInputs'
+
 function countActiveUsers(users) {
   console.log('활성 사용자 수를 세는중...');
   return users.filter(user => user.active).length;
@@ -18,10 +21,6 @@ function countActiveUsers(users) {
 
 // useReducer에 사용되는 상태들을 초기화
 const initialize = {
-  inputs: {
-    username: '',
-    email: ''
-  },
   users: [
     {
       id: 1,
@@ -48,58 +47,35 @@ const initialize = {
 // state.state객체 형식으로 각 state객체를 불러올 수 있음
 function reducer(state, action) {
   switch(action.type) {
-    case "CHANGE_INPUT":
-      return {
-        ...state,
-        inputs: {
-          ...state.inputs,
-          [action.name]: action.value
-          //state.inputs.[action.name] => state.inputs[usename/email]
-        }
-      };
     case "CREATE_USER":
       return {
         users: [...state.users, action.user],
-        inputs: {
-          ...state.inputs,
-          username: '',
-          email: ''
-        }
       };
     case "REMOVE_USER":
       return {
-        ...state,
         users: state.users.filter(user => user.id !== action.id)
       };
     case "TOGGLE_USER":
       return {
-        ...state,
         users: state.users.map(user => 
           user.id === action.id ? {...user, active: !user.active} : user
         )
       };
     default:
       return state;
-  };
+  }
 }
 
-
 function App() {
+  // 커스텀 Inputs 사용
+  const [{username, email}, onChange, reset] = useInputs({
+    username: '',
+    email: ''
+  });
+
   const [state, dispatch] = useReducer(reducer, initialize);
   const {users} = state;
   const nextId = useRef(4);
-  const {username, email} = state.inputs;
-
-  console.log(state);
-
-  const onChange = useCallback(e => {
-    const {name, value} = e.target;
-    dispatch({
-      type: "CHANGE_INPUT",
-      name,
-      value
-    });
-  }, []);
 
   const onCreate = useCallback(() => {
     dispatch({
@@ -110,8 +86,9 @@ function App() {
         email
       }
     });
+    reset();
     nextId.current += 1;
-  }, [username, email]);
+  }, [username, email, reset]);
 
   const onRemove = useCallback(id => {
     dispatch({

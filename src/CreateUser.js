@@ -15,7 +15,7 @@ function CreateUser({onChange, onCreate, username, email}) {
                 name="email"
                 placeholder="이메일"
                 onChange={onChange}
-                vlaue={email}
+                value={email}
             />
             <button onClick={onCreate}>등록</button>
         </div>
