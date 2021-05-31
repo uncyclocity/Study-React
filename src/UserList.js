@@ -1,7 +1,12 @@
-import React, {useEffect, useRef} from 'react';
+// useContext라는 Hook를 통해 UserDispatch Context를 조회해야 한다
+import React, {useEffect, useRef, useContext} from 'react';
+import {UserDispatch} from './App';
 
 // Array.prototype.map() 을 통해 호출되는 함수
-const User = React.memo(function User({user, onRemove, onToggle}) {
+const User = React.memo(function User({user}) {
+    // dispatch를 사용하기 위해 UserDispatch Context를 조회함
+    const dispatch = useContext(UserDispatch);
+
     /* 
     useEffect : 컴포넌트 랜더링 때마다 특정 작업 실행할 수 있도록 하는 Hook -> useEffect(function, deps)
 
@@ -36,14 +41,18 @@ const User = React.memo(function User({user, onRemove, onToggle}) {
                 cursor: 'pointer',
                 color: user.active ? 'green' : 'black'
             }}
-            onClick = {() => onToggle(user.id)}>{user.username}</b>
+            onClick = {() => {
+                dispatch({type: 'TOGGLE_USER', id: user.id});
+            }}> {user.username} </b>
             <span>({user.email})</span>
-            <button onClick={() => onRemove(user.id)}>삭제</button>
+            <button onClick={() => {
+                dispatch({type: 'REMOVE_USER', id: user.id})
+            }}>삭제</button>
         </div>
-    )
+    );
 });
 
-function UserList({users, onRemove, onToggle}) {
+function UserList({users}) {
     // 렌더링 확인용
     console.log('UserList.js가 렌더링됨')
     return (
@@ -58,8 +67,6 @@ function UserList({users, onRemove, onToggle}) {
                 <User
                     user={user}
                     key={user.id}
-                    onRemove={onRemove}
-                    onToggle={onToggle}
                 />
             ))}
         </div>

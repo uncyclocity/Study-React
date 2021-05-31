@@ -7,12 +7,9 @@ useReducer : useState의 확장판
 ㄴ 예)useState Hook을 사용하면서 setUsers와 setInputs가 동시에 쓰임
   => initialize에 한번에 초기화, reducer 함수 하나로 type 값에 따른 값 변경
 */
-import {useReducer, useRef, useMemo, useCallback} from 'react';
+import React, {useReducer, useMemo} from 'react';
 import UserList from './UserList';
 import CreateUser from './CreateUser';
-
-// hooks 폴더에 생성한 커스텀 hooks 호출
-import useInputs from './hooks/useInputs'
 
 function countActiveUsers(users) {
   console.log('활성 사용자 수를 세는중...');
@@ -66,57 +63,23 @@ function reducer(state, action) {
   }
 }
 
-function App() {
-  // 커스텀 Hooks 사용
-  const [{username, email}, onChange, reset] = useInputs({
-    username: '',
-    email: ''
-  });
+// Context API와 dispatch를 이용하면, 여러 컴포넌트를 거쳐서 전달하는 것을 한큐에 해결할 수 있다
+// export 하여 내보내면 import {UserDispatch} from './App' 형태로 
+export const UserDispatch = React.createContext(null);
 
+function App() {
   const [state, dispatch] = useReducer(reducer, initialize);
   const {users} = state;
-  const nextId = useRef(4);
-
-  const onCreate = useCallback(() => {
-    dispatch({
-      type: "CREATE_USER",
-      user: {
-        id: nextId.current,
-        username,
-        email
-      }
-    });
-    reset();
-    nextId.current += 1;
-  }, [username, email, reset]);
-
-  const onRemove = useCallback(id => {
-    dispatch({
-      type: "REMOVE_USER",
-      id
-    });
-  }, []);
-
-  const onToggle = useCallback(id => {
-    dispatch({
-      type: "TOGGLE_USER",
-      id
-    });
-  }, []);
 
   const count = useMemo(() => countActiveUsers(users), [users]);
 
   return (
-    <>
-      <CreateUser 
-        onChange={onChange}
-        onCreate={onCreate}
-        username={username}
-        email={email}
-      />
-      <UserList users={users} onRemove={onRemove} onToggle={onToggle}/>
+    // UserDispatch.Provider 태그로 감싼 범위의 컴포넌트 안에서 얼마든지 Dispatch를 사용할 수 있다.
+    <UserDispatch.Provider value={dispatch}>
+      <CreateUser/>
+      <UserList users={users}/>
       <div>활성사용자수 = {count}</div>
-    </>
+    </UserDispatch.Provider>
   );
 }
 

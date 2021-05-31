@@ -1,8 +1,19 @@
-import React from 'react';
+import React, {useContext, useRef} from 'react'
+import {UserDispatch} from './App';
+import useInputs from './hooks/useInputs';
 
-function CreateUser({onChange, onCreate, username, email}) {
+function CreateUser() {
     // 렌더링 확인용
-    console.log('CreateUser.js가 렌더링됨, ' + username + ", " + email);
+    console.log('CreateUser.js가 렌더링됨');
+
+    const dispatch = useContext(UserDispatch);
+    const nextId = useRef(4);
+
+    const [{username, email}, onChange, reset] = useInputs({
+        username: '',
+        email: ''
+    });
+
     return (
         <div>
             <input
@@ -17,7 +28,19 @@ function CreateUser({onChange, onCreate, username, email}) {
                 onChange={onChange}
                 value={email}
             />
-            <button onClick={onCreate}>등록</button>
+            <button onClick={() => {
+                dispatch({
+                    type: "CREATE_USER",
+                    user: {
+                        id: nextId.current,
+                        username,
+                        email
+                    }
+                })
+                reset();
+                nextId.current += 1;
+            }
+            }>등록</button>
         </div>
     );
 }
