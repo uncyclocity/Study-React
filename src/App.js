@@ -10,6 +10,7 @@ useReducer : useState의 확장판
 import React, {useReducer, useMemo} from 'react';
 import UserList from './UserList';
 import CreateUser from './CreateUser';
+//import produce from 'immer';
 
 function countActiveUsers(users) {
   console.log('활성 사용자 수를 세는중...');
@@ -43,7 +44,45 @@ const initialize = {
 // dispatch 함수 안의 객체 요소를 action.객체요소명 형식으로 불러올 수 있음
 // state.state객체 형식으로 각 state객체를 불러올 수 있음
 function reducer(state, action) {
-  switch(action.type) {
+  // immer 패키지를 이용하면 불변성을 신경쓰지 않고 코딩해도 자동으로 불변성을 지켜준다.
+  // 기존 코드에 따라 더 짧아질 수 있지만, 더 길어질 수도 있다.
+  // 되도록이면 데이터 구조가 복잡하게 되지 않는 쪽으로 코드를 짜고, 어쩔 수 없다면 필요한 부분에만 사용하는 편이 좋다.
+  // produce(객체, 함수) : 새로운 상태를 만들어 줌
+  /* 
+    produce(함수) : 새로운 상태를 만들어 주는 함수가 됨(함수형 업데이트에 사용하면 딱임)
+    예) 함수형 업데이트에 사용
+    const [todo, setTodo] = useState({
+      text: 'Hello',
+      done: false
+    });
+
+    const onClick = useCallback(() => {
+      setTodo(
+        produce(draft => {
+          draft.done = !draft.done;
+        });
+      )
+    }, []);
+  */
+  // switch (action.type) {
+  //   case "CREATE_USER" :
+  //     return produce(state, draft => {
+  //       draft.users.push(action.user);
+  //     });
+  //   case "TOGGLE_USER" :
+  //     return produce(state, draft => {
+  //       const user = draft.users.find(user => user.id === action.id);
+  //       user.active = !user.active;
+  //     });
+  //   case "REMOVE_USER" :
+  //     return produce(state, draft => {
+  //       const userIndex = draft.users.findIndex(user => user.id === action.id);
+  //       draft.users.splice(userIndex, 1);
+  //     });
+  //   default :
+  //     return state;
+  // }
+  switch (action.type) {
     case "CREATE_USER":
       return {
         users: [...state.users, action.user],
@@ -69,6 +108,7 @@ export const UserDispatch = React.createContext(null);
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initialize);
+  
   const {users} = state;
 
   const count = useMemo(() => countActiveUsers(users), [users]);
