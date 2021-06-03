@@ -1,0 +1,61 @@
+$blue: #228be6; // 변수 선언
+$gray: #495057;
+$pink: #f06595;
+
+// mixin을 이용하면 반복되는 코드를 쉽게 재사용할 수 있다.
+@mixin button-color($color) {
+  background: $color;
+  &:hover {
+    background: lighten($color, 10%);
+  }
+  &:active {
+    background: darken($color, 10%);
+  }
+}
+
+.Button {
+  display: inline-flex;
+  color: white;
+  font-weight: bold;
+  outline: none;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+
+  // .Button{&.large{}} 가 의미하는 것은 .Button.large{} 이다
+  &.medium {
+    height: 2.25rem;
+    padding: 0.6rem;
+    font-size: 1rem;
+  }
+
+  &.large {
+    height: 3rem;
+    padding: 0.9rem;
+    font-size: 1.25rem;
+  }
+
+  &.small {
+    height: 1.75rem;
+    padding: 0.4rem;
+    font-size: 0.875rem;
+  }
+
+  &.blue {
+    // 바로 이렇게!
+    @include button-color($blue);
+  }
+
+  &.gray {
+    @include button-color($gray);
+  }
+
+  &.pink {
+    @include button-color($pink);
+  }
+
+  // .button + .button 이므로 우측의 버튼을 스타일링 하겠다는 의미이다.
+  & + & {
+    margin-left: 1rem;
+  }
+}
