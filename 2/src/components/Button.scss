@@ -11,6 +11,18 @@ $pink: #f06595;
   &:active {
     background: darken($color, 10%);
   }
+  &.outline {
+    color: $color;
+    background: none;
+    border: 1px solid $color;
+    &:hover {
+      background: $color;
+      color: white;
+    }
+    &:active {
+      background: darken($color, 10%);
+    }
+  }
 }
 
 .Button {
@@ -57,5 +69,14 @@ $pink: #f06595;
   // .button + .button 이므로 우측의 버튼을 스타일링 하겠다는 의미이다.
   & + & {
     margin-left: 1rem;
+  }
+
+  &.fullWidth {
+    width: 100%;
+    justify-content: center;
+    & + & {
+      margin-left: 0;
+      margin-top: 1rem;
+    }
   }
 }
