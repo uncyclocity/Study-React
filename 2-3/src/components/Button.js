@@ -1,9 +1,12 @@
+// 여러줄의 css 코드를 조건부로 보여주고 싶으면 css를 import 할 필요가 있다.
 import styled, { css } from "styled-components";
+// CSS in JS 코드에서 SCSS처럼 darken lighten 같은 스타일링 유틸 함수 사용
 import { darken, lighten } from "polished";
 
+// {theme, color, outline} = props 이런 식의 비구조화 할당이다.
 const colorStyles = css`
   ${({ theme, color, outline }) => {
-    // {theme, color} = props 이런 식의 비구조화 할당이다.
+    // ThemeProvider 내부에 렌더링된 styled-components로 만든 컴포넌트에서 theme.palette[색상값이 들어간 인자] 형식으로 사용할 수 있다.
     const selected = theme.palette[color];
     return css`
       background: ${selected};
@@ -30,6 +33,8 @@ const colorStyles = css`
   }}
 `;
 
+// 사이즈에 따라 각 height, font-size, padding을 나눔
+// 객체에 각 값을 넣어서, css 코드에서 불러옴
 const sizeStyle = {
   big: {
     height: "3rem",
@@ -47,7 +52,6 @@ const sizeStyle = {
     padding: "0.4rem"
   }
 };
-
 const sizeStyles = css`
   ${({ size }) =>
     css`
@@ -56,20 +60,7 @@ const sizeStyles = css`
       padding: ${sizeStyle[size].padding};
     `}
 `;
-
-const fullWidthStyles = css`
-  ${(props) =>
-    props.fullWidth &&
-    css`
-      width: 100%;
-      justify-content: center;
-      &:not(:first-child) {
-        margin-left: 0;
-        margin-top: 1rem;
-      }
-    `}
-`;
-
+// 리펙토링 이전
 // const sizeStyles = css`
 //   ${({ size }) =>
 //     size === "big" &&
@@ -96,6 +87,23 @@ const fullWidthStyles = css`
 //     `}
 // `;
 
+// 가로로 꽉찬 버튼 스타일링
+// &:not(:first-child) 선택자는 첫 자손을 거르고 적용한다.
+// & + & 선택자를 사용해도 되었으나, 현재는 무슨 일인지 모든 해당 컴포넌트에 적용된다.
+const fullWidthStyles = css`
+  ${({ fullWidth }) =>
+    fullWidth &&
+    css`
+      width: 100%;
+      justify-content: center;
+      &:not(:first-child) {
+        margin-left: 0;
+        margin-top: 1rem;
+      }
+    `}
+`;
+
+// 버튼 스타일링 메인
 const StyledButton = styled.button`
   display: inline-flex;
   color: white;
