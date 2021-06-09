@@ -123,6 +123,8 @@ function Dialog({
 
   // visible은 바뀌려는 상태, localVisible은 현재 상태
   // Animate 값 true -> 250ms 뒤에 false로 바꿈
+  // 애니메이션이 한번 일어난 후, localVisible의 값이 visible이랑 같아지므로
+  // 이후 한번 더 실행되더라도 setLocalVisible에서 같은 값으로 셋팅이 되므로 한번 더 실행되지 않는다.
   useEffect(() => {
     if (localVisible && !visible) {
       setAnimate(true);
