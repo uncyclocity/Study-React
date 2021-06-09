@@ -2,11 +2,11 @@
 
 > 참고 : https://react.vlpt.us/basic/03-first-component.html
 
-####📕 주로 배운 내용
+#### 📕 주로 배운 내용
 
 - 함수형 컴포넌트 생성
 
-#####Hello.js
+##### Hello.js
 
 ```{.javascript}
 function Hello() {
@@ -28,7 +28,7 @@ export default Hello;
 
 - 실제 DOM 내부에 리액트 컴포넌트가 렌더링되는 구조
 
-#####index.js
+##### index.js
 
 ```{.javascript}
 import React from "react";
@@ -50,7 +50,7 @@ reportWebVitals();
 
 - 컴포넌트의 재사용성
 
-#####App.js
+##### App.js
 
 ```{.javascript}
 import Hello from './Hello';
