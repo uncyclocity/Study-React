@@ -6,6 +6,12 @@ function Hello(props) {
 */
 
 // 아래처럼 비구조 할당 개념을 통해 각 props 값을 가져올 수 있다.
+/*
+  Q. 왜 중괄호가 두 개 들어가나요?
+  A.
+  - 바깥 중괄호 : JSX에서 JS 변수 값 사용하는 문법
+  - 안쪽 중괄호 : 객체 리터럴 문법(인라인 스타일링을 위한 객체 생성 및 적용))
+*/
 function Hello({ name, color }) {
   return <div style={{ color }}>저는 {name} 입니다.</div>;
 }
