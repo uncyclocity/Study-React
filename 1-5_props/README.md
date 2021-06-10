@@ -17,6 +17,8 @@
   function App() {
     return <Hello name="uncyclocity" color="pink">
   }
+
+  export default App;
   ```
 
   ##### Hello.js
@@ -81,6 +83,8 @@
       <Wrapper />
     )
   }
+
+  export default App;
   ```
 
   ##### Hello.js
@@ -111,5 +115,5 @@
     })
   }
 
-  export default Hello;
+  export default Wrapper;
   ```

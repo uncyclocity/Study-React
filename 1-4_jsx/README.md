@@ -20,6 +20,8 @@
       </div>
     )
   }
+
+  export default App;
   ```
 
   ```{.javascript}
@@ -27,6 +29,8 @@
   function App() {
     return <Component>내용</Component>
   }
+
+  export default App;
   ```
 
   - Fragment라는 이름의 아무 이름도 없는 태그를 편의상 쓸 수 있다.
@@ -40,6 +44,8 @@
       </>
     )
   }
+
+  export default App;
   ```
 
   <br>
@@ -86,6 +92,8 @@
   function Component () {
     return <div className="button">GOT IT!</div>
   }
+
+  export default Component;
   ```
 
   <br>
