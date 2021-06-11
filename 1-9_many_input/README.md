@@ -42,14 +42,14 @@
         ...inputs,
         [name]: value,
       });;
-    }
+    };
 
     const reset = () => {
       useState({
           fullname: "",
           nickname: ""
       });
-    }
+    };
 
     return (
       <div>
