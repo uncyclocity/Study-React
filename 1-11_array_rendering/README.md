@@ -1,70 +1,100 @@
-# Getting Started with Create React App
+# 챕터 1-11 : 배열 렌더링하기
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> 참고 : https://react.vlpt.us/basic/11-render-array.html
 
-## Available Scripts
+#### 📕 주로 배운 내용
 
-In the project directory, you can run:
+- 재사용 가능한 코드를 일일이 반복하는 것 = 영 좋지 않음
 
-### `yarn start`
+  ```{.javascript}
+  function UserList() {
+    const users = [
+      {
+        id: 1,
+        username: 'uncyclocity',
+        email: 'seongbeom_lee@kakao.com'
+      },
+      {
+          id: 2,
+          username: 'yoong_kim',
+          email: 'dl2qja@gmail.com'
+      },
+      {
+          id: 3,
+          username: 'sblee',
+          email: 'xuct227@gmail.com'
+      }
+    ];
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+    return (
+      // 반복 가능한 코드를 일일이 쓰고 있다. 우엑;;
+      <>
+        <div>
+          <b>{users[0].username}</b> <span>({users[0].email})</span>
+        </div>
+        <div>
+          <b>{users[1].username}</b> <span>({users[1].email})</span>
+        </div>
+        <div>
+          <b>{users[2].username}</b> <span>({users[2].email})</span>
+        </div>
+      </>
+    )
+  }
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+  export default UserList;
+  ```
 
-### `yarn test`
+<br>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- 화면에 띄우기 위한 JSX 코드가 정리 된 컴포넌트 별도 선언
 
-### `yarn build`
+  - 한 파일 내에 여러 개의 컴포넌트를 선언해도 된다.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  ```{.javascript}
+  function User({ user }) {
+    return (
+      <div>
+        <b>{user.username}</b> <span>{user.email}</span>
+      </div>
+    )
+  }
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  function UserList() {
+    const users = [
+      {
+        id: 1,
+        username: 'uncyclocity',
+        email: 'seongbeom_lee@kakao.com'
+      },
+      {
+          id: 2,
+          username: 'yoong_kim',
+          email: 'dl2qja@gmail.com'
+      },
+      {
+          id: 3,
+          username: 'sblee',
+          email: 'xuct227@gmail.com'
+      }
+    ];
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    return(
+      <div>
+        <User user={user} key={user.id} />
+      </div>
+    )
+  }
 
-### `yarn eject`
+  export default UserList;
+  ```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<br>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- key 존재 유무의 차이
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+  - key 없이 렌더링 할 경우, 중간에 값을 집어넣으면 뒤의 값들이 차례차례 기존의 앞의 값으로 바뀐 다음 마지막에 기존의 맨 끝의 값이 새로 삽입된다.
+    ![nokey](https://i.imgur.com/3rkaiY1.gif)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  - key가 있을 경우, 보다 효율적이게도 기존의 값은 그대로 두고 원하는 곳에 새로운 값을 삽입할 수 있다.
+    ![nokey](https://i.imgur.com/yEUS6Bx.gif)
