@@ -23,7 +23,7 @@ https://xiubindev.tistory.com/102
 [anxiubin] React.memo *컴포넌트 성능 최적화<br>
 https://xiubindev.tistory.com/102
 
-[TOAST UI] React.memo() 현명하게 사용하기
+[TOAST UI] React.memo() 현명하게 사용하기<br>
 https://ui.toast.com/weekly-pick/ko_20190731
 
 > Front-End 개발자로 거듭하는 그날까지, 백괴 화이팅💪🔥
