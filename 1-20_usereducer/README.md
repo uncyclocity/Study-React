@@ -1,70 +1,158 @@
-# Getting Started with Create React App
+# 챕터 1-20 : useReducer 를 사용하여 상태 업데이트 로직 분리하기
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> 참고 : https://react.vlpt.us/basic/20-useReducer.html
 
-## Available Scripts
+#### 📕 주로 배운 내용
 
-In the project directory, you can run:
+- `useReducer()` 기본 개념
+  - 복잡한 상태를 관리할 때 보다 편리한 상태 관리가 가능하다.
+  - 상태 업데이트 로직(reducer 함수)를 컴포넌트에서 분리시킬 수 있으며, 아에 별도의 파일로 작성하여 불러올 수도 있다.
+  - `useReducer(상태 업데이트 함수, 초기 상태가 담긴 객체)` 형태로 사용가능하다.
+  - 상태 객체와 디스패치 함수(액션을 발생시키는 함수)를 반환한다.
 
-### `yarn start`
+<br>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- 사용 예시
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+  ```{.javascript}
+  import React from 'react';
 
-### `yarn test`
+  /*
+    reducer 함수
+    - 현재의 상태 및 디스패치 함수에서 설정한 액션을 받아옴 -> reducer 함수에 지정한 새로운 상태 객체 반환
+    - useReducer() 첫 번째 인자로 들어감
+  */
+  function reducer(state, action) {
+    switch (action.type) {
+      case "ON_INIT":
+        return {
+          users: initialState.users,
+          inputs: initialState.inputs,
+        };
+      case "ON_CHANGE":
+        return {
+          ...state,
+          inputs: {
+            ...state.inputs,
+            [action.name]: action.value,
+          },
+        };
+      case "ON_CREATE":
+        return {
+          users: state.users.concat(action.user),
+          inputs: initialState.inputs,
+        };
+      case "ON_REMOVE":
+        return {
+          ...state,
+          users: state.users.filter((user) => user.id !== action.id),
+        };
+      case "ACTIVER":
+        return {
+          ...state,
+          users: state.users.map((user) =>
+            user.id === action.id ? { ...user, active: !user.active } : user
+          ),
+        };
+      default:
+        return state;
+    };
+  }
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  // 초기 상태를 정의하는 객체, useReducer() 두 번째 인자로 들어감
+  const initialState = {
+    users: [
+      {
+        id: 1,
+        username: "Uncyclocity",
+        email: "seongbeom_lee@kakao.com",
+        active: true,
+      },
+      {
+        id: 2,
+        username: "yoong_kim",
+        email: "dl2qja@gmail.com",
+        active: false,
+      },
+      {
+        id: 3,
+        username: "sblee",
+        email: "xuct227@gmail.com",
+        active: false,
+      },
+    ],
+    inputs: {
+      username: "",
+      email: "",
+    },
+  };
 
-### `yarn build`
+  function App() {
+    /*
+      useReducer()
+      - reducer 함수와 초기 상태가 정의된 객체를 인자로 넘긴다.
+      - 상태와 디스패치 함수를 받아올 수 있다.
+    */
+    const [state, dispatch] = useReducer(reducer, initialState);
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    const nextId = useRef(4);
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    const { username, email } = state.inputs;
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    /*
+      - 디스패치 함수를 통해 액션 객체를 설정해 주었다.
+      - 원하는 변수를 넣어 사용할 수도 있다.
+      - 여기서 지정한 action 객체가 넘겨진 reducer 함수가 실행된다.
+    */
+    const onInit = useCallback(() => {
+      dispatch({
+        type: "ON_INIT",
+      });
+    }, []);
 
-### `yarn eject`
+    const onChange = useCallback((e) => {
+    const name = e.target.name,
+      value = e.target.value;
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+      dispatch({
+        type: "ON_CHANGE",
+        name,
+        value,
+      });
+    }, []);
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    const onCreate = useCallback(() => {
+      const user = {
+        id: nextId.current,
+        username: username,
+        email: email,
+      };
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+      dispatch({
+        type: "ON_CREATE",
+        user,
+      });
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+      nextId.current += 1;
+    }, [username, email]);
 
-## Learn More
+    const onRemove = useCallback((id) => {
+      dispatch({
+        type: "ON_REMOVE",
+        id,
+      });
+    }, []);
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    const activer = useCallback((id) => {
+      dispatch({
+        type: "ACTIVER",
+        id,
+      });
+    }, []);
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    (내용생략)
 
-### Code Splitting
+  }
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  export default UserList;
+  ```
