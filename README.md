@@ -1,6 +1,6 @@
 # 🔮 React.js 개발자 준비
 
-본 리포지토리는 Front-End 개발자로 나아가기 위해 React.js를 공부하며 준비하는 과정이 담겨져 있습니다.
+본 리포지토리는 Front-End 개발자로 나아가기 위해 React.js를 공부하며 준비하는 과정이 담겨져 있습니다.<br>
 각 챕터의 순서와 내용은 아래의 velopert님 GitBook 강의에 따른 것입니다.
 
 ## 📚 공부를 위해 참고한 문서
@@ -25,5 +25,8 @@ https://xiubindev.tistory.com/102
 
 [TOAST UI] React.memo() 현명하게 사용하기<br>
 https://ui.toast.com/weekly-pick/ko_20190731
+
+[anxiubin] React Hooks : useContext() & Context API : createContext()<br>
+https://xiubindev.tistory.com/105
 
 > Front-End 개발자로 거듭하는 그날까지, 백괴 화이팅💪🔥
