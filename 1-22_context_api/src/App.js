@@ -95,7 +95,7 @@ function App() {
 
   return (
     /*
-      - context가_담긴_변수이름.Provider는 컴포넌트 이름이며, 이를 통해 context의 값을 지정할 수 있다.
+      - Provider 컴포넌트를 통해 context의 값을 지정할 수 있다.
       - 값을 정할 때는 value에 설정해준다.
       - 이 컴포넌트 태그가 감싼 범위 내에서 지정한 값을 사용할 수 있다.
     */
