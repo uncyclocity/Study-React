@@ -12,16 +12,13 @@ function reducer(state, action) {
     case "ON_CREATE":
       return {
         users: state.users.concat(action.user),
-        inputs: initialState.inputs,
       };
     case "ON_REMOVE":
       return {
-        ...state,
         users: state.users.filter((user) => user.id !== action.id),
       };
     case "ACTIVER":
       return {
-        ...state,
         users: state.users.map((user) =>
           user.id === action.id ? { ...user, active: !user.active } : user
         ),
@@ -89,7 +86,9 @@ function App() {
     });
 
     nextId.current += 1;
-  }, [username, email]);
+
+    onInit();
+  }, [username, email, onInit]);
 
   const count = useMemo(() => countActiveUsers(state.users), [state.users]);
 
