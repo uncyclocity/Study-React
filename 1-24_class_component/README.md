@@ -78,7 +78,7 @@
 
 - 이벤트 핸들러와 this
 
-  - 상단 코드의 커스텀 메서드에서 `this`를 조회할 경우, `undefined`가 조회된다.
+  - 상단 코드의 커스텀 메서드에서 `this`를 조회할 경우, `undefined`가 조회된다.<br>
     => DOM의 이벤트로 등록되는 과정에서 메서드-컴포넌트 인스턴스 간 관계가 끊어지기 때문이다.
   - this가 컴포넌트 인스턴스를 가리키도록 작업하기
     1. 생성자 메서드(`constructor`)에서 bind해주기
@@ -88,10 +88,10 @@
            super(props);
            this.handleIncrease = this.handleIncrease.bind(this);
          }
-         render() {
-           handlerIncrease() {
+         handlerIncrease() {
              console.log(this);
-           }
+         }
+         render() {
            (코드생략)
          }
        }
@@ -99,10 +99,11 @@
     2. 커스텀 메서드를 화살표 함수로 만들기(class-properties 문법)
        ```{.javascript}
        class Counter extends Component {
+         (코드생략)
+         handlerIncrease = () => {
+           console.log(this);
+         }
          render() {
-           handlerIncrease = () => {
-             console.log(this);
-           }
            (코드생략)
          }
        }
@@ -135,7 +136,7 @@
     )
     ```
   - 함수형 컴포넌트의 업데이트 방식과는 달리, **업데이트가 필요한 상태 값만 업데이트** 해주어도 된다. 이외의 값은 유지된다.
-  - 함수형 업데이트를 사용할 수 있으며, 이 경우에는 `setState` 함수를 여러 번 사용할 수 있다.
+  - **함수형 업데이트**를 사용할 수 있으며, 이 경우에는 `setState` 함수를 여러 번 사용할 수 있다.
 
     ```{.javascript}
     this.setState(state => ({
