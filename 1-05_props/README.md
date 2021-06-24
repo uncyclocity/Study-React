@@ -15,7 +15,7 @@
   import Hello from './components/Hello';
 
   function App() {
-    return <Hello name="uncyclocity" color="pink">
+    return <Hello name="uncyclocity" color="pink" />
   }
 
   export default App;
