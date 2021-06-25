@@ -6,8 +6,8 @@
 
 - props 기본 규칙
 
-  - props를 통해 특정 값이나 스타일을 전달하여 지정할 수 있다.
-  - props는 개수 제한이 없으며, props 각 값들이 들어간 객체로 전달이 된다.
+  - props를 통해 특정 값이나 스타일 등을 컴포넌트에 전달하여 사용할 수 있다.
+  - props는 개수 제한이 없으며, 전달받은 props 각 값들이 들어간 객체 형태로 전달이 된다.
 
   ##### App.js
 
@@ -31,9 +31,11 @@
   export default Hello;
   ```
 
-  <br>
+  <br> 
 
 - 비구조화 할당 활용
+
+  - props는 객체 형태이므로, 중괄호로 감싸서 각 값을 받아준다.
 
   ##### Hello.js
 
@@ -57,8 +59,8 @@
   }
 
   Hello.defaultProps = {
-      name: "Unkonwn",
-      color: "red"
+    name: "Unkonwn",
+    color: "red"
   }
 
   export default Hello;
@@ -77,7 +79,7 @@
   function App() {
     return (
       <Wrapper
-      // children 내용을 감싸는 박스 역할
+      // children 내용을 감싸는 박스 역할인 컨테이너
       >
         <Hello name="Uncyclocity" color="pink" />
       <Wrapper />
