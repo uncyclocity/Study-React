@@ -7,7 +7,7 @@
 - 여러개의 상태 관리하기
 
   - `useState()` Hook을 사용할 때, 상태를 객체로 지정함으로써 복수의 상태를 관리할 수 있다.
-    ```{.javascript}
+    ```
     const [states, setStates] = useState({
       id: 1,
       name: "Uncyclocity"
@@ -18,9 +18,9 @@
 
 - spread 연산자를 통해 불변성 지키기
 
-  - 상태 업데이트는 기존 상태를 수정하는 것이 아닌, 새로운 값을 상태로 지정해야만 한다. 이러한 작업을 **"불변성을 지킨다"** 라고 한다.
+  - 상태 업데이트는 기존 상태를 수정하는 것이 아닌, 새로운 값을 상태로 지정해야만 한다. 이러한 작업을 **불변성을 지킨다** 라고 한다.
   - `states[name] = "new name"` 형태로 업데이트해서는 안되며, 아래와 같이 새로운 객체를 만들어준다.
-    ```{.javascript}
+    ```
     // spread 연산자를 사용하여 기존 값들을 복붙해주었다.
     setStates({
       ...states,
@@ -32,9 +32,10 @@
   <br>
 
 - 사용 예시
+
   ##### InputSample.js
 
-  ```{.javascript}
+  ```
   import { useState } from 'react';
 
   function InputSample() {

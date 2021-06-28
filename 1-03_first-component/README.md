@@ -8,7 +8,7 @@
 
 ##### Hello.js
 
-```{.javascript}
+```
 function Hello() {
   return <div>안녕하세요</div>
 }
@@ -20,7 +20,7 @@ export default Hello;
 
 - 함수 내보내기
 
-```{.javascript}
+```
 export default Hello;
 ```
 
@@ -30,7 +30,7 @@ export default Hello;
 
 ##### index.js
 
-```{.javascript}
+```
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
@@ -52,7 +52,7 @@ reportWebVitals();
 
 ##### App.js
 
-```{.javascript}
+```
 import Hello from './Hello';
 
 function App() {

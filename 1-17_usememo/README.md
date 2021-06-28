@@ -4,25 +4,25 @@
 
 #### 📕 주로 배운 내용
 
-- useMemo() 기본 개념
-  - 렌더링 시 deps 배열 내부의 값 변화가 없을 경우, **이전의 연산 값을 그대로 재사용**토록 하는 Hook이다.
+- `useMemo()` 기본 개념
+  - 렌더링 시 `deps` 값 변화가 없을 경우, **이전의 연산 값을 그대로 재사용**토록 하는 Hook이다.
   - 기존의 연산 값을 재사용함으로서 렌더링 시의 무지성 값 재연산을 막기 때문에 성능 최적화에 용이하다.
 
 <br>
 
 - 함수의 형태 : `useMemo(function, deps)`
-  - function : 수행시키려는 작업
-  - deps : 상태 변경을 검사하고자 하는 특정 값들이 들어가는 배열
+  - `function` : 수행시키려는 작업
+  - `deps` : 상태 변경을 검사하고자 하는 특정 값들이 들어가는 배열
 
 <br>
 
 - 사용하기
 
-  ```{.javascript}
+  ```
   import React, { useMemo } from "react";
   ```
 
-  ```{.javascript}
+  ```
   const [item1, setItem1] = useState(false),
         [item2, setItem2] = useState(false);
 
@@ -46,7 +46,7 @@
 
   ##### App.js
 
-  ```{.javascript}
+  ```
   import { useRef, useState, useMemo } from 'react';
   (코드생략...)
 

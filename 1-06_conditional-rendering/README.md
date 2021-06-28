@@ -11,7 +11,7 @@
 
     ##### App.js
 
-    ```{.javascript}
+    ```
     import Hello from './components/Hello';
 
     function App() {
@@ -26,7 +26,7 @@
 
     ##### Hello.js
 
-    ```{.javascript}
+    ```
     function Hello({ name, isVIP }}) {
       return (
         <div>저는 { name } 입니다.</div>
@@ -37,19 +37,19 @@
         {isVIP && <b>현재 VIP 고객입니다.</b>}
       )
     }
-    
+
     export default Hello;
     ```
 
   <br>
 
-- `<Component isTrue={true} />` = `<Component isTrue />`
+- `<Component isTrue={true} />` **=** `<Component isTrue />`
 
-  - props의 값 셋팅을 생략할 경우, True로 자동 셋팅된다.
+  - `props`의 값 셋팅을 생략할 경우, `true`로 자동 셋팅된다.
 
     ##### App.js
 
-    ```{.javascript}
+    ```
     import Hello from './components/Hello';
 
     function App() {

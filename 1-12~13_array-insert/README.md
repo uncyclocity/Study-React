@@ -16,18 +16,18 @@
 
   - 상태와는 달리 값이 업데이트 되어도 리렌더링 되지 않는다.
   - 상태와는 달리 리렌더링 없이도 업데이트 된 변수값을 조회할 수 있다.
-  - `.current`로 현재 값을 받을 수 있다. 따라서 수정할 때도 `.current` 값을 수정하면 되고 조회할 때도 `.current` 값을 조회하면 된다.<br>
+  - `.current`에 지정한 변수값이 저장된다.
     (참고 : `useRef` 객체의 값을 특정 DOM으로 설정했을 경우, `.current`는 해당 DOM을 가리킨다.)
 
 - 사용하기
 
-  ```{.javascript}
+  ```
   import React, { useRef } from "react";
   ```
 
   ##### 조회
 
-  ```{.javascript}
+  ```
   // 초기화 값을 인자로 넣어준다.
   const num = useRef(0)
   (코드생략...)
@@ -37,7 +37,7 @@
 
   ##### 수정
 
-  ```{.javascript}
+  ```
   const num = useRef(0)
   (코드생략...)
   num.current += 1;
@@ -51,7 +51,7 @@
 
   - 배열의 변경 내용을 렌더링하려면, 배열을 상태값으로써 관리해주어야 한다.
 
-    ```{.javascript}
+    ```
     const [users, setUsers] = useState([
       {
         id: 1,
@@ -73,7 +73,7 @@
 
   - spread 연산자를 이용한 배열 추가
 
-    ```{.javascript}
+    ```
     const user = {
       /*
         useRef로 관리받는 변수를 고유값으로 지정해 주었다.
@@ -87,9 +87,9 @@
     setUsers([...users, user]);
     ```
 
-  - 원하는 요소를 추가한 새 배열을 반환하는 `concat()` 배열함수를 이용한 배열 추가
+  - **원하는 요소를 추가한 새 배열을 반환하는 `concat()` 배열함수**를 이용한 배열 추가
 
-    ```{.javascript}
+    ```
     const user = {
       id: nextId.current,
       username,

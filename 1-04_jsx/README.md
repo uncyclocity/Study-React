@@ -10,7 +10,7 @@
   - 여는태그와 닫는태그 사이에 넣을 내용이 없다면, Self Closing(`<div />`)를 사용할 수 있다.
   - 두 개 이상의 태그는 항상 하나의 태그로 감싸져야만 한다. 반대로 태그 하나는 자신만으로 가능하다.
 
-    ```{.javascript}
+    ```
     // 태그 여러 개
     function App() {
       return (
@@ -24,7 +24,7 @@
     export default App;
     ```
 
-    ```{.javascript}
+    ```
     // 태그 한 개
     function App() {
       return <Component>내용</Component>
@@ -35,9 +35,9 @@
 
   - Fragment라는 이름의 태그(`<></>` 혹은 `<Fragment></Fragment>`)를 편의상 쓸 수 있다.
 
-    => 테이블의 내용을 설정해주는 등 div 태그를 쓰기 난처한 상황의 경우, 이를 사용하면 유용하다.
+    👉 테이블의 내용을 설정해주는 등 div 태그를 쓰기 난처한 상황의 경우, 이를 사용하면 유용하다.
 
-    ```{.javascript}
+    ```
     function App() {
       return (
         <>
@@ -56,7 +56,7 @@
 
   - JSX 내부에 JS 변수 값을 보여줄 때는 중괄호로 감싼다.
 
-    ```{.javascript}
+    ```
     function Component() {
       const name = 'Uncyclocity';
       return <div>{name}</div>
@@ -67,7 +67,7 @@
 
   - 인라인 스타일은 객체 형태로 작성한다.
 
-    ```{.javascript}
+    ```
     function Component() {
       const style = {
         fontSize: 25, // 기본 단위는 px이다.
@@ -86,7 +86,7 @@
     export default Component;
     ```
 
-    ```{.javascript}
+    ```
     function Component() {
       const color = "pink";
 
@@ -100,9 +100,9 @@
     export default Component;
     ```
 
-  - 외부 CSS 파일을 가져올 수 있으며, CSS class를 설정 할 때는 HTML처럼 `class=`가 아닌 `className=`으로 설정 해주어야 한다.
+  - 외부 CSS 파일을 가져올 수 있으며, CSS class를 설정 할 때는 HTML처럼 `class=`가 아닌, `className=`으로 설정 해주어야 한다.
 
-    ```{.javascript}
+    ```
     // 외부 CSS 파일 가져오기
     import './Component.css';
 
@@ -117,7 +117,7 @@
 
 - JSX 안에서 주석 사용
 
-  ```{.javascript}
+  ```
   function Component () {
     return(
       <div

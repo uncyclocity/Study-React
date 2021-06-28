@@ -4,9 +4,9 @@
 
 #### 📕 주로 배운 내용
 
-- useEffect() 기본 개념
+- `useEffect()` 기본 개념
   - 컴포넌트가 렌더링을 감지하여 특정 작업을 실행하도록 하는 Hook
-  - **마운트(렌터링)/언마운트(사라짐)/deps 상태 업데이트 직전** 중 원하는 시점에서 특정 작업을 처리할 수 있다.
+  - **마운트(렌터링)/언마운트(사라짐)/`deps` 상태 업데이트 직전** 중 원하는 시점에서 특정 작업을 처리할 수 있다.
   - 클래스형 컴포넌트의 생명주기 메서드와 흡사하다.
 
 <br>
@@ -21,7 +21,7 @@
 
   - `(함수)` -> 마운트
 
-    ```{.javascript}
+    ```
     useEffect(() => {
       console.log('마운트 발생');
     });
@@ -29,7 +29,7 @@
 
   - `(함수, 빈 배열)` -> 최초 마운트
 
-    ```{.javascript}
+    ```
     useEffect(() => {
       console.log('최초 마운트 발생');
     }, []);
@@ -37,7 +37,7 @@
 
   - `(함수, 값이 들어간 배열)` -> 최초 마운트, 상태 업데이트
 
-    ```{.javascript}
+    ```
     const [item, setItem] = useState(0);
 
     useEffect(() => {
@@ -56,7 +56,7 @@
 
   - [번외] 최초 마운트 스킵, 상태 업데이트 시에만 작업 수행 : useRef 변수를 활용한 조건문 삽입
 
-    ```{.javascript}
+    ```
     const [item, setItem] = useState(1);
 
     // 최초 마운트 시 true로 바꾸어 줄 변수
@@ -83,11 +83,11 @@
 
 <br>
 
-- cleanup 함수 반환 (return 뒤에 나오는 함수)
+- cleanup 함수 반환 (`return` 뒤에 나오는 함수)
 
   - 호출 시점 : 언마운트, 상태 업데이트 직전
 
-    ```{.javascript}
+    ```
     const [item, setItem] = useState(1);
 
     useEffect(() => {

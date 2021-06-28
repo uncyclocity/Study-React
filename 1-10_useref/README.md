@@ -12,7 +12,7 @@
 
     ##### 상태 리셋 시 특정 Input 태그에 포커스를 주는 예시 (components/InputSample.js)
 
-    ```{.javascript}
+    ```
     import { useState, useRef } from 'react';
 
     function InputSample() {
@@ -40,7 +40,7 @@
           fullname: "",
           nickname: ""
         });
-        
+
         /*
           ref객체.current : JSX 코드에서 지정한, ref 객체가 참조하는 DOM 자체를 가리키게 됨
           `focus()` DOM API 이용하여 해당 DOM으로 포커스를 지정해 주었다.
@@ -52,7 +52,7 @@
         <div>
           {/* 원하는 DOM에 ref 값을 설정 */}
           <input name="fullname" value={fullname} onChange={onchange} ref={nameInput}/>
-          
+
           <input name="nickname" value={nickname} onChange={onchange} />
           <button onClick={reset}>초기화</button>
           <div>
