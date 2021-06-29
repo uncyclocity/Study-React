@@ -20,4 +20,7 @@ https://www.daleseo.com/react-hooks-use-callback/
 [TOAST UI] React.memo() 현명하게 사용하기<br>
 https://ui.toast.com/weekly-pick/ko_20190731
 
+[velopert] Sass 강좌 – 한 눈에 보기<br>
+https://velopert.com/1712
+
 > Front-End 개발자로 거듭하는 그날까지, 백괴 화이팅💪🔥
