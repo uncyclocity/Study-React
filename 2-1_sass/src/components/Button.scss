@@ -1,0 +1,96 @@
+$blue: #ffffff; // 변수 선언
+$gray: #ffffff;
+$pink: #ffffff;
+
+// mixin을 통해 재사용 가능한 코드를 만들 수 있다.
+@mixin button-color($color) {
+  background: $color;
+
+  &:hover {
+    background: lighten($color, 10%); // SCSS 내장함수
+  }
+
+  &:active {
+    background: darken($color, 10%);
+  }
+
+  &.outline {
+    color: $color;
+    background: none;
+    border: 1px solid $color;
+    &:hover {
+      background: $color;
+      color: white;
+    }
+    &:active {
+      background: darken($color, 10%);
+    }
+  }
+}
+
+body {
+  // !global : 전역으로 해당 변수를 선언
+  $blue: #228be6 !global;
+  $gray: #495057 !global;
+  $pink: #f06595 !global;
+}
+
+.Button {
+  display: table-cell;
+  color: white;
+  font-weight: bold;
+  vertical-align: middle;
+  outline: none;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+
+  // className에 들어오는 사이즈를 관리한다.
+  // &는 부모 선택자를 의미한다. 즉, .Button.large다 이말이다.
+  &.large {
+    height: 3rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 1.25rem;
+  }
+
+  &.medium {
+    height: 2.25rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 1rem;
+  }
+
+  &.small {
+    height: 1.75rem;
+    padding-left: 0.875rem;
+    padding-right: 1rem;
+    font-size: 1rem;
+  }
+
+  &.blue {
+    // mixin에 인자를 넘겨주고 사용하기
+    @include button-color($blue);
+  }
+
+  &.gray {
+    @include button-color($gray);
+  }
+
+  &.pink {
+    @include button-color($pink);
+  }
+
+  &.fullwidth {
+    width: 100%;
+  }
+
+  // 선택자의 응용 : 부모 선택자(&)의 첫 자식(:first-child)가 아닌 것(:not)에 모두 적용
+  &:not(:first-child) {
+    margin-left: 1rem;
+    &.fullwidth {
+      margin-left: 0;
+      margin-top: 1rem;
+    }
+  }
+}
