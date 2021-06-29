@@ -6,21 +6,21 @@
 
 - `componentDidCatch()` 기본 개념
 
-  - 클래스형 컴포넌트에서 쓰이는 **생명 주기** 메소드 중 하나이다.
+  - 클래스형 컴포넌트에서 쓰이는 **생명 주기 메소드** 중 하나이다.
   - 에러가 발생할 경우 실행되어, 지정한 작업을 수행한다.
 
 <br>
 
 - 메소드의 구조
-  ```{.javascript}
+  ```
   componentDidCatch(error, info) { /* 수행시킬 작업 */ }
   ```
-  - error : 에러의 내용이 들어감
-  - info : 에러가 발생한 주소가 들어감
+  - `error` : 에러의 내용
+  - `info` : 에러가 발생한 주소
 
 <br>
 
-- 사용 예시
+- 사용 예시 : 에러 리포트 역할의 클래스형 컴포넌트를 별도로 만들어 활용하기
 
   ##### App.js
 
@@ -36,11 +36,7 @@
 
     return (
       <ErrorBoundary>
-        { /*
-          props로 user 객체를 넣어주어야 하나,
-          에러를 발생시키기 위해 넣어주지 않았음
-          (User 내부에 defaultProps도 설정하지 않음)
-        */ }
+        { /* 에러 발생 유도를 위해 props로 user 객체를 넘기지 않음 */ }
         <User />
       </ErrorBoundary>
     );
@@ -52,7 +48,7 @@
   ```{.javascript}
   import { Components } from "react";
 
-  function ErrorBoundary({ user }) {
+  class ErrorBoundary extends Component {
     this.state{
       error: false
     };
@@ -71,7 +67,7 @@
 
     render() {
       if (this.state.error) {
-        return <h1>왕 에러가 발생했다맨이야</h1>;
+        return <h1>에러발생!</h1>;
       }
       return this.props.children;
     }

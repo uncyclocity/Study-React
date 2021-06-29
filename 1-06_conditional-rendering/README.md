@@ -45,7 +45,7 @@
 
 - `<Component isTrue={true} />` **=** `<Component isTrue />`
 
-  - `props`의 값 셋팅을 생략할 경우, `true`로 자동 셋팅된다.
+  - props의 값 셋팅을 생략할 경우, `true`로 자동 셋팅된다.
 
     ##### App.js
 
