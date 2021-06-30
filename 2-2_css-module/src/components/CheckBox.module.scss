@@ -1,0 +1,36 @@
+$checked: #339af0;
+$checkBox_def: #adb5bd;
+
+.checkbox {
+  display: flex;
+  align-items: center;
+
+  label {
+    cursor: pointer;
+  }
+
+  input {
+    visibility: hidden;
+    position: absolute;
+  }
+
+  span {
+    font-size: 1.125rem;
+    font-weight: bold;
+  }
+
+  // 전역적인 클래스명
+  :global {
+    .icon {
+      display: flex;
+      align-items: center;
+      font-size: 2rem;
+      margin-right: 0.25rem;
+      color: $checkBox_def;
+    }
+  }
+
+  .checked {
+    color: $checked;
+  }
+}

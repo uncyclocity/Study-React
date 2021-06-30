@@ -1,6 +1,8 @@
 {
   "dependencies": {
     "classnames": "^2.3.1",
-    "immer": "^9.0.3"
+    "immer": "^9.0.3",
+    "node-sass": "4.14.1",
+    "react-icons": "^4.2.0"
   }
 }

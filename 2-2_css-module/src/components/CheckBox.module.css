@@ -1,0 +1,31 @@
+.checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox label {
+  cursor: pointer;
+}
+
+.checkbox input {
+  visibility: hidden;
+  position: absolute;
+}
+
+.checkbox span {
+  font-size: 1.125rem;
+  font-weight: bold;
+}
+
+/* 클래스명 고유화 X, 전역적 클래스명 사용 */
+:global .icon {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  margin-right: 0.25rem;
+  color: #adb5bd;
+}
+
+.checked {
+  color: #339af0;
+}
