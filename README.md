@@ -7,8 +7,8 @@ Front-End 개발자로 나아가기 위해 React.js를 학습한 내용을 정�
 
 ## 📔 규칙
 
-- 각 챕터의 순서 및 제목은 기본적으로 <a href="https://react.vlpt.us/">"벨로퍼트와 함께하는 모던 리액트"</a> 문서를 기준으로 두고 있으나, 다른 문서도 참고하고 있기에 약간의 차이가 존재합니다.
-- 현재 진도에 따라 목차가 추차됩니다.
+- 각 챕터의 순서 및 제목은 기본적으로 <a href="https://react.vlpt.us/">"벨로퍼트와 함께하는 모던 리액트"</a> 문서를 기준으로 두고 있으나, 그 외에도 다양한 문서를 참고하고 있는 만큼 학습 한 내용에 따라 약간의 차이가 존재합니다.
+- 2021년 7월 기준 꾸준히 업데이트 중에 있으며, 현재 진도에 따라 목차가 추차됩니다.
 - 각 목차마다 붙는 이모지는 학습 횟수를 나타냅니다. (예시 - 1️⃣ : 1회 학습)
 
 ## 🗂 목차
@@ -38,7 +38,7 @@ Front-End 개발자로 나아가기 위해 React.js를 학습한 내용을 정�
   - <a href="https://github.com/uncyclocity/study_react/tree/main/1-23_immer">23. Immer 를 사용한 더 쉬운 불변성 관리</a>
   - <a href="https://github.com/uncyclocity/study_react/tree/main/1-24_class-component">24. 클래스형 컴포넌트</a>
   - <span>25. LifeCycle Method</span>
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/1-26_componentdidcatch">26. componentDidCatch 로 에러 잡아내기 / Sentry 연동</a>
+  - <a href="https://github.com/uncyclocity/study_react/tree/main/1-26_componentdidcatch">26. componentDidCatch 로 에러 잡아내기</a>
 - 2장. 리액트 컴포넌트 스타일링하기 1️⃣
   - <a href="https://github.com/uncyclocity/study_react/tree/main/2-1_sass">1. Sass</a>
   - <a href="https://github.com/uncyclocity/study_react/tree/main/2-2_css-module">2. CSS Module</a>
@@ -58,4 +58,4 @@ Front-End 개발자로 나아가기 위해 React.js를 학습한 내용을 정�
 >
 > <a href="https://velopert.com/1712">"Sass 강좌 – 한 눈에 보기"</a> _.velopert_
 >
-> _Front-End 개발자로 거듭하는 그날까지, 백괴 화이팅💪🔥_
+> _"Front-End 개발자로 거듭하는 그날까지, 백괴 화이팅💪🔥"_
