@@ -1,4 +1,7 @@
+import { useContext } from "react";
+import { useRef } from "react";
 import styled from "styled-components";
+import { UserDispatch } from "../App";
 
 const TodoHeadStyle = styled.div`
   padding-top: 48px;
@@ -24,7 +27,7 @@ const TodoHeadStyle = styled.div`
   }
 `;
 
-function TodoHead() {
+function TodoHead({ notDone }) {
   const today = new Date();
 
   const year = today.getFullYear(),
@@ -48,7 +51,7 @@ function TodoHead() {
         {year}년 {month}월 {date}일
       </h1>
       <div className="day">{dayArr[day]}</div>
-      <div className="tasks-left">할 일 n개 남음</div>
+      <div className="tasks-left">할 일 {notDone}개 남음</div>
     </TodoHeadStyle>
   );
 }

@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useContext, useRef } from "react";
 import styled, { css } from "styled-components";
 import { MdAdd } from "react-icons/md";
 import { darken, lighten } from "polished";
+import { UserDispatch } from "../App";
 
 const CircleButton = styled.div`
   background: #38d9a9;
@@ -77,15 +78,30 @@ const Input = styled.input`
 
 function TodoCreate() {
   const [open, setOpen] = useState(false);
+  const dispatch = useContext(UserDispatch);
+  const textInput = useRef();
 
   const onToggle = () => setOpen(!open);
+
+  const onCreate = () => {
+    if(open && window.event.keyCode === 13) {
+      const inputed = textInput.current.value;
+
+      dispatch({
+        type: "CREATE_TODO",
+        inputed
+      });
+
+      onToggle();
+    }
+  }
 
   return (
     <>
       {open && (
         <InsertFormPositioner>
           <InsertForm>
-            <Input autofocus placeholder="할 일을 입력 후, Enter을 누르세요" />
+            <Input onKeyup={onCreate} autofocus placeholder="할 일을 입력 후, Enter을 누르세요" ref={}/>
           </InsertForm>
         </InsertFormPositioner>
       )}
