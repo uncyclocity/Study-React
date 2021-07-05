@@ -12,7 +12,7 @@ function TodoList({ todos }) {
   return (
     <TodoListBlock>
       {todos.map((todo) => (
-        <TodoItem done={todo.isDone} text={todo.text} />
+        <TodoItem key={todo.id} id={todo.id} done={todo.isDone} text={todo.text} />
       ))}
     </TodoListBlock>
   );

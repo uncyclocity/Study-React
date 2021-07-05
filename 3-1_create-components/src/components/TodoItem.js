@@ -1,5 +1,7 @@
+import { useContext } from "react";
 import styled, { css } from "styled-components";
 import { MdDone, MdDelete } from "react-icons/md";
+import { UserDispatch } from "../App";
 
 const Remove = styled.div`
   display: flex;
@@ -58,11 +60,36 @@ const Text = styled.div`
 `;
 
 function TodoItem({ id, done, text }) {
+  const dispatch = useContext(UserDispatch);
+
+  const onRemove = () => {
+    dispatch({
+      type: "REMOVE_TODO",
+      id
+    });
+    
+    onRefreshNum();
+  };
+
+  const onCheck = () => {
+    dispatch({
+      type: "CHECK_TODO",
+      id,
+      isDone: !done
+    });
+
+    onRefreshNum();
+  };
+
+  const onRefreshNum = () => {
+    dispatch({type: "REFRESH_ISDONE"});
+  }
+
   return (
     <TodoItemBlock>
-      <CheckCircle done={done}>{done && <MdDone />}</CheckCircle>
+      <CheckCircle done={done} onClick={onCheck}>{done && <MdDone />}</CheckCircle>
       <Text done={done}>{text}</Text>
-      <Remove>
+      <Remove onClick={onRemove}>
         <MdDelete />
       </Remove>
     </TodoItemBlock>

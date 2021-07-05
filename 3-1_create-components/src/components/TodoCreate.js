@@ -83,14 +83,22 @@ function TodoCreate() {
 
   const onToggle = () => setOpen(!open);
 
-  const onCreate = () => {
-    if(open && window.event.keyCode === 13) {
-      const inputed = textInput.current.value;
+  const onSubmit = e => {
+    if(open) {
+      const text = textInput.current.value,
+            isDone = false;
+
+      e.preventDefault();
 
       dispatch({
         type: "CREATE_TODO",
-        inputed
+        newtodo: {
+          text,
+          isDone
+        }
       });
+
+      dispatch({type: "REFRESH_ISDONE"});
 
       onToggle();
     }
@@ -100,8 +108,8 @@ function TodoCreate() {
     <>
       {open && (
         <InsertFormPositioner>
-          <InsertForm>
-            <Input onKeyup={onCreate} autofocus placeholder="할 일을 입력 후, Enter을 누르세요" ref={}/>
+          <InsertForm onSubmit={onSubmit}>
+            <Input autofocus placeholder="할 일을 입력 후, Enter을 누르세요" ref={textInput}/>
           </InsertForm>
         </InsertFormPositioner>
       )}

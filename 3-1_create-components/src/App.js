@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import { useReducer, createContext, useRef } from "react";
+import { useReducer, createContext } from "react";
 import TodoTemplate from "./components/TodoTemplate";
 import TodoHead from "./components/TodoHead";
 import TodoList from "./components/TodoList";
@@ -21,14 +21,17 @@ const GlobalStyle = createGlobalStyle`
 const initialState = {
   todos: [
     {
+      id: 1,
       text: "미사강변도시 임장",
       isDone: true,
     },
     {
+      id: 2,
       text: "광교신도시 임장",
       isDone: true,
     },
     {
+      id: 3,
       text: "위례신도시 임장",
       isDone: false,
     },
@@ -41,8 +44,23 @@ function reducer(state, action) {
     case "CREATE_TODO":
       return {
         ...state,
-        todos: state.todos.concat(action.newTodo),
+        todos: state.todos.concat(action.newtodo),
       };
+    case "REMOVE_TODO":
+      return {
+        ...state,
+        todos: state.todos.filter(todo => action.id !== todo.id),
+      };
+    case "CHECK_TODO":
+      return {
+        ...state,
+        todos: state.todos.map(todo => todo.id === action.id ? {...todo, isDone: action.isDone} : todo)
+      };
+    case "REFRESH_ISDONE":
+      return {
+        ...state,
+        notDone: state.todos.filter(todo => !todo.isDone).length
+      }
     default:
       return state;
   }

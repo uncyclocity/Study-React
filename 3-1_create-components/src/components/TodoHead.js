@@ -1,7 +1,4 @@
-import { useContext } from "react";
-import { useRef } from "react";
 import styled from "styled-components";
-import { UserDispatch } from "../App";
 
 const TodoHeadStyle = styled.div`
   padding-top: 48px;
