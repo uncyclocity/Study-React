@@ -19,24 +19,8 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const initialState = {
-  todos: [
-    {
-      id: 1,
-      text: "미사강변도시 임장",
-      isDone: true,
-    },
-    {
-      id: 2,
-      text: "광교신도시 임장",
-      isDone: true,
-    },
-    {
-      id: 3,
-      text: "위례신도시 임장",
-      isDone: false,
-    },
-  ],
-  notDone: 1,
+  todos: [],
+  notDone: 0,
 };
 
 function reducer(state, action) {
@@ -49,18 +33,20 @@ function reducer(state, action) {
     case "REMOVE_TODO":
       return {
         ...state,
-        todos: state.todos.filter(todo => action.id !== todo.id),
+        todos: state.todos.filter((todo) => action.id !== todo.id),
       };
     case "CHECK_TODO":
       return {
         ...state,
-        todos: state.todos.map(todo => todo.id === action.id ? {...todo, isDone: action.isDone} : todo)
+        todos: state.todos.map((todo) =>
+          todo.id === action.id ? { ...todo, isDone: action.isDone } : todo
+        ),
       };
     case "REFRESH_ISDONE":
       return {
         ...state,
-        notDone: state.todos.filter(todo => !todo.isDone).length
-      }
+        notDone: state.todos.filter((todo) => !todo.isDone).length,
+      };
     default:
       return state;
   }
@@ -75,7 +61,7 @@ function App() {
     <UserDispatch.Provider value={dispatch}>
       <GlobalStyle />
       <TodoTemplate>
-        <TodoHead notDone={state.notDone} />
+        <TodoHead todosLen={state.todos.length} notDone={state.notDone} />
         <TodoList todos={state.todos} />
         <TodoCreate />
       </TodoTemplate>

@@ -1,8 +1,36 @@
-import { useState, useContext, useRef } from "react";
-import styled, { css } from "styled-components";
+import React, {
+  useState,
+  useContext,
+  useRef,
+  useCallback,
+  useEffect,
+} from "react";
+import styled, { css, keyframes } from "styled-components";
 import { MdAdd } from "react-icons/md";
 import { darken, lighten } from "polished";
 import { UserDispatch } from "../App";
+
+const slideUp = keyframes`
+  from {
+    transform: translateY(5px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0px);
+  }
+`;
+
+const slideDown = keyframes`
+  from {
+    transform: translateY(0px);
+  }
+
+  to {
+    transform: translateY(5px);
+    opacity: 0;
+  }
+`;
 
 const CircleButton = styled.div`
   background: #38d9a9;
@@ -30,8 +58,8 @@ const CircleButton = styled.div`
   justify-content: center;
   align-items: center;
   box-shadow: 0 0 8px 0 #38d9a9;
-
   transition: 0.15s all ease-in-out;
+
   ${(props) =>
     props.open &&
     css`
@@ -64,6 +92,17 @@ const InsertForm = styled.form`
   border-bottom-left-radius: 16px;
   border-bottom-right-radius: 16px;
   border-top: 1px solid #e9ecef;
+
+  animation-duration: 0.25s;
+  animation-name: ${slideUp};
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+
+  ${(props) =>
+    props.disappear &&
+    css`
+      animation-name: ${slideDown};
+    `}
 `;
 
 const Input = styled.input`
@@ -77,39 +116,61 @@ const Input = styled.input`
 `;
 
 function TodoCreate() {
+  console.log("TodoCreate()");
+
   const [open, setOpen] = useState(false);
+  const [localOpen, setLocalOpen] = useState(open);
+  const [animate, setAnimate] = useState(false);
   const dispatch = useContext(UserDispatch);
   const textInput = useRef();
+  const idNum = useRef(0);
 
-  const onToggle = () => setOpen(!open);
+  const onToggle = useCallback(() => setOpen(!open), [open]);
 
-  const onSubmit = e => {
-    if(open) {
-      const text = textInput.current.value,
-            isDone = false;
+  const onSubmit = useCallback(
+    (e) => {
+      if (open) {
+        const text = textInput.current.value,
+          isDone = false;
 
-      e.preventDefault();
+        e.preventDefault();
 
-      dispatch({
-        type: "CREATE_TODO",
-        newtodo: {
-          text,
-          isDone
-        }
-      });
+        dispatch({
+          type: "CREATE_TODO",
+          newtodo: {
+            id: idNum.current,
+            text,
+            isDone,
+          },
+        });
 
-      dispatch({type: "REFRESH_ISDONE"});
+        dispatch({ type: "REFRESH_ISDONE" });
 
-      onToggle();
+        idNum.current += 1;
+        onToggle();
+      }
+    },
+    [dispatch, onToggle, open]
+  );
+
+  useEffect(() => {
+    if (open !== localOpen) {
+      setAnimate(true);
+      setTimeout(() => setAnimate(false), 250);
     }
-  }
+    setLocalOpen(open);
+  }, [open, localOpen]);
 
   return (
     <>
-      {open && (
+      {(localOpen || animate) && (
         <InsertFormPositioner>
-          <InsertForm onSubmit={onSubmit}>
-            <Input autofocus placeholder="할 일을 입력 후, Enter을 누르세요" ref={textInput}/>
+          <InsertForm onSubmit={onSubmit} disappear={!open}>
+            <Input
+              autoFocus
+              placeholder="할 일을 입력 후, Enter을 누르세요"
+              ref={textInput}
+            />
           </InsertForm>
         </InsertFormPositioner>
       )}
@@ -120,4 +181,4 @@ function TodoCreate() {
   );
 }
 
-export default TodoCreate;
+export default React.memo(TodoCreate);

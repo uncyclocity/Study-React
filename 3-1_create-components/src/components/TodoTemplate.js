@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 
 const TodoTemplateBlock = styled.div`
@@ -17,7 +18,9 @@ const TodoTemplateBlock = styled.div`
 `;
 
 function TodoTemplate({ children }) {
+  console.log("TodoTemplate()");
+
   return <TodoTemplateBlock>{children}</TodoTemplateBlock>;
 }
 
-export default TodoTemplate;
+export default React.memo(TodoTemplate);

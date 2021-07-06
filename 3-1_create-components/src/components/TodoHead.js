@@ -1,4 +1,6 @@
+import React from "react";
 import styled from "styled-components";
+import { MdAddCircleOutline } from "react-icons/md";
 
 const TodoHeadStyle = styled.div`
   padding-top: 48px;
@@ -21,10 +23,16 @@ const TodoHeadStyle = styled.div`
     font-size: 18px;
     margin-top: 40px;
     font-weight: bold;
+    .addIcon {
+      font-size: 20px;
+      transform: translate(0, 16%);
+    }
   }
 `;
 
-function TodoHead({ notDone }) {
+function TodoHead({ todosLen, notDone }) {
+  console.log("TodoHead()");
+
   const today = new Date();
 
   const year = today.getFullYear(),
@@ -48,9 +56,19 @@ function TodoHead({ notDone }) {
         {year}년 {month}월 {date}일
       </h1>
       <div className="day">{dayArr[day]}</div>
-      <div className="tasks-left">할 일 {notDone}개 남음</div>
+      <div className="tasks-left">
+        {todosLen > 0 && notDone === 0 && "모든 할일을 마치셨어요!"}
+        {todosLen === 0 && notDone === 0 && (
+          <div>
+            <span>하단의 </span>
+            <MdAddCircleOutline className="addIcon" />
+            <span>버튼을 눌러 할일을 추가해보세요!</span>
+          </div>
+        )}
+        {todosLen > 0 && notDone !== 0 && notDone + "개의 할일이 남았네요!"}
+      </div>
     </TodoHeadStyle>
   );
 }
 
-export default TodoHead;
+export default React.memo(TodoHead);

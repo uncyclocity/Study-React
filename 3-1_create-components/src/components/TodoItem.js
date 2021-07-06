@@ -1,7 +1,40 @@
-import { useContext } from "react";
-import styled, { css } from "styled-components";
+import React, { useCallback, useContext, useState } from "react";
+import styled, { css, keyframes } from "styled-components";
 import { MdDone, MdDelete } from "react-icons/md";
 import { UserDispatch } from "../App";
+
+const slideUp = keyframes`
+  from {
+    transform: translateY(5px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0px);
+  }
+`;
+
+const slideDown = keyframes`
+  from {
+    transform: translateY(0px);
+  }
+
+  to {
+    transform: translateY(5px);
+    opacity: 0;
+  }
+`;
+
+const stackUp = keyframes`
+  from {
+    transform: translateY(0px);
+  }
+
+  to {
+    transform: translateY(5px);
+    opacity: 0;
+  }
+`;
 
 const Remove = styled.div`
   display: flex;
@@ -13,7 +46,7 @@ const Remove = styled.div`
   &:hover {
     color: #ff6b6b;
   }
-  transition: 0.15s all ease-in-out;
+  transition: 0.25s all ease-in-out;
   display: none;
 `;
 
@@ -27,6 +60,23 @@ const TodoItemBlock = styled.div`
       display: initial;
     }
   }
+
+  animation-duration: 0.25s;
+  animation-name: ${slideUp};
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+
+  ${(props) =>
+    props.rmCnt &&
+    css`
+      animation-name: ${slideDown};
+    `}
+
+  ${(props) =>
+    props.stCnt &&
+    css`
+      animation-name: ${stackUp};
+    `}
 `;
 
 const CheckCircle = styled.div`
@@ -40,6 +90,16 @@ const CheckCircle = styled.div`
   justify-content: center;
   margin-right: 20px;
   cursor: pointer;
+  transition: 0.25s all ease-in-out;
+
+  &:hover {
+    box-shadow: 0 0 8px 0 #38d9a9;
+  }
+
+  &:active {
+    box-shadow: 0 0 8px 0 #38d9a9;
+  }
+
   ${(props) =>
     props.done &&
     css`
@@ -60,34 +120,42 @@ const Text = styled.div`
 `;
 
 function TodoItem({ id, done, text }) {
+  console.log("TodoItem()");
+
   const dispatch = useContext(UserDispatch);
+  const [rmCnt, setRmCnt] = useState(false);
 
-  const onRemove = () => {
-    dispatch({
+  const onRefreshNum = useCallback(() => {
+    dispatch({ type: "REFRESH_ISDONE" });
+  }, [dispatch]);
+
+  const onRemove = useCallback(() => {
+    const rmTarget = {
       type: "REMOVE_TODO",
-      id
-    });
-    
-    onRefreshNum();
-  };
+      id,
+    };
+    setRmCnt(true);
+    setTimeout(() => {
+      dispatch(rmTarget);
+      onRefreshNum();
+    }, 250);
+  }, [dispatch, id, onRefreshNum]);
 
-  const onCheck = () => {
+  const onCheck = useCallback(() => {
     dispatch({
       type: "CHECK_TODO",
       id,
-      isDone: !done
+      isDone: !done,
     });
 
     onRefreshNum();
-  };
-
-  const onRefreshNum = () => {
-    dispatch({type: "REFRESH_ISDONE"});
-  }
+  }, [dispatch, done, id, onRefreshNum]);
 
   return (
-    <TodoItemBlock>
-      <CheckCircle done={done} onClick={onCheck}>{done && <MdDone />}</CheckCircle>
+    <TodoItemBlock rmCnt={rmCnt}>
+      <CheckCircle done={done} onClick={onCheck}>
+        {done && <MdDone />}
+      </CheckCircle>
       <Text done={done}>{text}</Text>
       <Remove onClick={onRemove}>
         <MdDelete />
@@ -96,4 +164,4 @@ function TodoItem({ id, done, text }) {
   );
 }
 
-export default TodoItem;
+export default React.memo(TodoItem);
