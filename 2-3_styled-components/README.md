@@ -184,7 +184,7 @@
 
 - [번외] keyframe을 이용한 트랜지션 효과 구현
 
-  - 애니메이션 효과는 CSS의 **`@keyframes` 규칙**으로 구현한다. 우리는 이를 통해 애니메이션의 중간 과정을 세밀하게 관리할 수 있다.
+  - CSS의 트랜지션은 **`@keyframes` 규칙**을 통해 보다 세밀하게 관리할 수 있다.
 
     ```
     @keyframes slideUp {
@@ -226,7 +226,7 @@
     `
     ```
 
-  - 키프레임으로 컴포넌트에 애니메이션 적용하기 (styled-components 문법)
+  - 키프레임을 이용한 애니메이션 적용 예제 (styled-components 문법)
 
     - `animation` 각 속성에 대한 설명은 <a href="https://brunch.co.kr/@99-life/3">여기</a> 참고
     - 예제 코드 : 다이얼로그 창의 슬라이드 업/다운 구현
@@ -342,7 +342,7 @@
             props.disappear &&
             css`
               animation-name: ${slideDown};
-          `}
+            `}
         `;
 
         function Dialog({ visible, onClose }) {

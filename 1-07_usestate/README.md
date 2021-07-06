@@ -100,7 +100,7 @@
 - 함수형 업데이트
 
   - 기존의 상태값이 인자로 들어온다.
-  - `useCallback()`와 함께 사용할 때 최적화에 용이하다. (<a href="https://github.com/uncyclocity/study_react/tree/main/1-19_react.memo">챕터 1-19 참고</a>)
+  - `useCallback()`와 `useState()`를 함께 사용할 때 최적화에 용이하다. (<a href="https://github.com/uncyclocity/study_react/tree/main/1-19_react.memo">챕터 1-19 참고</a>)
 
   ```
   const onIncrease = () => {
