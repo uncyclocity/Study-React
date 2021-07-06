@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { MdAddCircleOutline } from "react-icons/md";
+import { UserState } from "../TodoContext";
 
 const TodoHeadStyle = styled.div`
   padding-top: 48px;
@@ -30,8 +31,12 @@ const TodoHeadStyle = styled.div`
   }
 `;
 
-function TodoHead({ todosLen, notDone }) {
+function TodoHead() {
   console.log("TodoHead()");
+
+  const state = useContext(UserState),
+    todosLen = state.todos.length,
+    notDone = state.notDone;
 
   const today = new Date();
 

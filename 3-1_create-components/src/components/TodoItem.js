@@ -1,7 +1,7 @@
 import React, { useCallback, useContext, useState } from "react";
 import styled, { css, keyframes } from "styled-components";
 import { MdDone, MdDelete } from "react-icons/md";
-import { UserDispatch } from "../App";
+import { UserDispatch } from "../TodoContext";
 
 const slideUp = keyframes`
   from {
@@ -25,28 +25,19 @@ const slideDown = keyframes`
   }
 `;
 
-const stackUp = keyframes`
-  from {
-    transform: translateY(0px);
-  }
-
-  to {
-    transform: translateY(5px);
-    opacity: 0;
-  }
-`;
-
 const Remove = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #dee2e6;
   font-size: 24px;
   cursor: pointer;
+  transition: 0.25s all ease-in-out;
+
+  color: #dee2e6;
   &:hover {
     color: #ff6b6b;
   }
-  transition: 0.25s all ease-in-out;
+
   display: none;
 `;
 
@@ -55,6 +46,7 @@ const TodoItemBlock = styled.div`
   align-itmes: center;
   padding-top: 12px;
   padding-bottom: 12px;
+
   &:hover {
     ${Remove} {
       display: initial;
@@ -62,20 +54,14 @@ const TodoItemBlock = styled.div`
   }
 
   animation-duration: 0.25s;
-  animation-name: ${slideUp};
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
+  animation-name: ${slideUp};
 
   ${(props) =>
     props.rmCnt &&
     css`
       animation-name: ${slideDown};
-    `}
-
-  ${(props) =>
-    props.stCnt &&
-    css`
-      animation-name: ${stackUp};
     `}
 `;
 
@@ -147,7 +133,6 @@ function TodoItem({ id, done, text }) {
       id,
       isDone: !done,
     });
-
     onRefreshNum();
   }, [dispatch, done, id, onRefreshNum]);
 

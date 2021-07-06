@@ -8,7 +8,7 @@ import React, {
 import styled, { css, keyframes } from "styled-components";
 import { MdAdd } from "react-icons/md";
 import { darken, lighten } from "polished";
-import { UserDispatch } from "../App";
+import { UserDispatch } from "../TodoContext";
 
 const slideUp = keyframes`
   from {
@@ -41,19 +41,22 @@ const CircleButton = styled.div`
     background: ${darken(0.1, "#38d9a9")};
   }
 
-  z-index: 5;
-  cursor: pointer;
   width: 80px;
   height: 80px;
   border-radius: 50%;
+  outline: none;
+  border: none;
+  cursor: pointer;
+
   font-size: 60px;
+  color: white;
+
+  z-index: 5;
   position: absolute;
   left: 88%;
   bottom: 0px;
   transform: translate(-50%, 50%);
-  color: white;
-  border: none;
-  outline: none;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -122,6 +125,7 @@ function TodoCreate() {
   const [localOpen, setLocalOpen] = useState(open);
   const [animate, setAnimate] = useState(false);
   const dispatch = useContext(UserDispatch);
+
   const textInput = useRef();
   const idNum = useRef(0);
 
