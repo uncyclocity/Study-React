@@ -14,7 +14,7 @@ Front-End 개발자로 나아가기 위해 React.js를 학습한 내용을 정�
 ## 🗂 목차
 
 - 1장. 리액트 입문 2️⃣
-  - <span>1. 나의 첫번째 리액트 컴포넌트</span>
+  - <span>1. 리액트는 어쩌다 만들어졌을까?</span>
   - <span>2. 작업환경 준비</span>
   - <a href="https://github.com/uncyclocity/study_react/tree/main/1-03_first-component">3. 나의 첫번째 리액트 컴포넌트</a>
   - <a href="https://github.com/uncyclocity/study_react/tree/main/1-04_jsx">4. JSX</a>
@@ -43,6 +43,7 @@ Front-End 개발자로 나아가기 위해 React.js를 학습한 내용을 정�
   - <a href="https://github.com/uncyclocity/study_react/tree/main/2-1_sass">1. Sass</a>
   - <a href="https://github.com/uncyclocity/study_react/tree/main/2-2_css-module">2. CSS Module</a>
   - <a href="https://github.com/uncyclocity/study_react/tree/main/2-3_styled-components">3. styled-components</a>
+- <a href="https://github.com/uncyclocity/react_todoList">3장. 멋진 투두리스트 만들기 (별도 레포로 분리)</a> 0️⃣
 
 > ### Refrences
 >
