@@ -12,13 +12,13 @@
 
 - 사용하기
 
-  - `src` 디렉터리 내부에 `hooks`라는 이름의 디렉터리를 새로 만든다.
+  - `src` 디렉터리 내부에 `hooks`라는 이름의 디렉터리를 새로 만든다.<br>
     ![make_hooks_dir](./example1.png)
 
-  - `hooks` 내부에 js파일을 만들어 함수를 작성한다. 보통 여느 Hooks처럼 `use`로 시작한다.
+  - `hooks` 내부에 js파일을 만들어 함수를 작성한다. 보통 여느 Hooks처럼 `use`로 시작한다.<br>
     ![useInputs.js_in_hooks_dir](./example2.png)
 
-  - 기호에 따라 Hooks 등을 사용하여 함수를 작성하고, `import`를 통해 내보내기 한다.<br>
+  - 기호에 따라 Hooks 등을 사용하여 함수를 작성하고, export하여 외부에서 사용할 수 있도록 한다.<br>
 
     ```
     import { useState, useRef } from "react"
@@ -39,6 +39,8 @@
 
       return [num, increase, init];
     }
+    
+    export default useItem;
     ```
 
   - 외부에서 커스텀 Hook을 불러오기
