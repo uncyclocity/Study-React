@@ -4,7 +4,7 @@ import axios from "axios";
 /*
   axios
   - REST API를 호출할 수 있는 라이브러리
-  - GET/POST/PUT/DELETE 등의 메서드로 API를 요청할 수 있다.
+  - GET/POST/PUT/DELETE 등의 메서드로 API와 연동할 수 있다.
 */
 
 const init = {
@@ -41,14 +41,18 @@ function reducer(state, action) {
 function Users() {
   const [{ users, loading, error }, dispatch] = useReducer(reducer, init);
 
+  // useEffect의 첫 파라미터에 넘겨주는 함수 = async 사용 불가 => 이를 사용하는 새로운 함수를 선언하여 불러와야 함
   const fetchUsers = async () => {
+    // 로딩중 상태로 변경
     dispatch({ type: "LOADING" });
     try {
+      // api 연동 시도
       const response = await axios.get(
         "https://jsonplaceholder.typicode.com/users"
       );
       dispatch({ type: "SUCCESS", data: response.data });
     } catch (e) {
+      // 실패 시 에러를 띄움
       dispatch({ type: "ERROR", error: e });
     }
   };
