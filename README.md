@@ -44,7 +44,7 @@ Front-End 개발자로 나아가기 위해 React.js를 학습한 내용을 정�
   - <a href="https://github.com/uncyclocity/study_react/tree/main/2-3_styled-components">3. styled-components</a>
 - <a href="https://github.com/uncyclocity/react_todoList">3장. 멋진 투두리스트 만들기 (별도 레포로 분리)</a>
 - 4장. API 연동하기
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/2-3_styled-components">1. API 연동의 기본</a>
+  - <a href="https://github.com/uncyclocity/study_react/tree/main/4-1_basic">1~2. API 연동의 기본</a>
 
 > ### Refrences
 >
@@ -59,5 +59,13 @@ Front-End 개발자로 나아가기 위해 React.js를 학습한 내용을 정�
 > <a href="https://ui.toast.com/weekly-pick/ko_20190731">"React.memo() 현명하게 사용하기"</a> _.TOAST UI_
 >
 > <a href="https://velopert.com/1712">"Sass 강좌 – 한 눈에 보기"</a> _.velopert_
+>
+> <a href="https://velog.io/@zofqofhtltm8015/Axios-사용법-서버-통신-해보기">"Axios란? / Axios 사용 및 서버 통신 해보기!"</a> _.zofqofhtltm8015_
+>
+> <a href="https://이듬.run/axios/guide/">"Axios 러닝 가이드"</a> _.yamoo9_
+>
+> <a href="https://satisfactoryplace.tistory.com/84">"[Javascript] async-await와 Promise"</a> _.Satisfaction_
+>
+> <a href="https://axios-http.com/">"Axios Docs"</a> _.Axios_
 >
 > _"Front-End 개발자로 거듭하는 그날까지, 백괴 화이팅💪🔥"_
