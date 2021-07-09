@@ -6,7 +6,7 @@
 
 #### 📕 주로 배운 내용
 
-- axios
+- Axios 라이브러리
 
   - **Promise API**가 기반인 HTTP 비동기 통신 클라이언트이다.
   - 리액트에서 AJAX를 구현할 때도 사용된다.
@@ -102,17 +102,16 @@
         name: "Guoi Paik",
         username: "Uncyclocity",
         address: "Seongnam"
-      }
+      };
       console.log("넣은 데이터 : \n" + response.data);
       try {
         const response = await axios.post("https://jsonplaceholder.typicode.com/users", newData);
-
       } catch (e) {
         console.log(e);
       }
     }
 
-    useEffect(() => { example() }, []);
+    useEffect(() => example(), []);
     ```
 
   - `PUT` : URL의 데이터를 수정한다.

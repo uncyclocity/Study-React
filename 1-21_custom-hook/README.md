@@ -13,6 +13,7 @@
 - 사용하기
 
   - `src` 디렉터리 내부에 `hooks`라는 이름의 디렉터리를 새로 만든다.<br>
+    (이는 의무 사항이 아니지만, 컴포넌트 종류 구분을 위해 만들어주었다.)<br>
     ![make_hooks_dir](./example1.png)
 
   - `hooks` 내부에 js파일을 만들어 함수를 작성한다. 보통 여느 Hooks처럼 `use`로 시작한다.<br>
@@ -39,7 +40,7 @@
 
       return [num, increase, init];
     }
-    
+
     export default useItem;
     ```
 
