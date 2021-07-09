@@ -9,11 +9,10 @@ Front-End 개발자로 나아가기 위해 React.js를 학습한 내용을 정�
 
 - 각 챕터의 순서 및 제목은 기본적으로 <a href="https://react.vlpt.us/">"벨로퍼트와 함께하는 모던 리액트"</a> 문서를 기준으로 두고 있으나, 그 외에도 다양한 문서를 참고하고 있는 만큼 학습 한 내용에 따라 약간의 차이가 존재합니다.
 - 2021년 7월 기준 꾸준히 업데이트 중에 있으며, 현재 진도에 따라 목차가 추차됩니다.
-- 각 목차마다 붙는 이모지는 학습 횟수를 나타냅니다. (예시 - 1️⃣ : 1회 학습)
 
 ## 🗂 목차
 
-- 1장. 리액트 입문 2️⃣
+- 1장. 리액트 입문
   - <span>1. 리액트는 어쩌다 만들어졌을까?</span>
   - <span>2. 작업환경 준비</span>
   - <a href="https://github.com/uncyclocity/study_react/tree/main/1-03_first-component">3. 나의 첫번째 리액트 컴포넌트</a>
@@ -39,11 +38,13 @@ Front-End 개발자로 나아가기 위해 React.js를 학습한 내용을 정�
   - <a href="https://github.com/uncyclocity/study_react/tree/main/1-24_class-component">24. 클래스형 컴포넌트</a>
   - <span>25. LifeCycle Method</span>
   - <a href="https://github.com/uncyclocity/study_react/tree/main/1-26_componentdidcatch">26. componentDidCatch 로 에러 잡아내기</a>
-- 2장. 리액트 컴포넌트 스타일링하기 1️⃣
+- 2장. 리액트 컴포넌트 스타일링하기
   - <a href="https://github.com/uncyclocity/study_react/tree/main/2-1_sass">1. Sass</a>
   - <a href="https://github.com/uncyclocity/study_react/tree/main/2-2_css-module">2. CSS Module</a>
   - <a href="https://github.com/uncyclocity/study_react/tree/main/2-3_styled-components">3. styled-components</a>
-- <a href="https://github.com/uncyclocity/react_todoList">3장. 멋진 투두리스트 만들기 (별도 레포로 분리)</a> 0️⃣
+- <a href="https://github.com/uncyclocity/react_todoList">3장. 멋진 투두리스트 만들기 (별도 레포로 분리)</a>
+- 4장. API 연동하기
+  - <a href="https://github.com/uncyclocity/study_react/tree/main/2-3_styled-components">1. API 연동의 기본</a>
 
 > ### Refrences
 >
