@@ -39,12 +39,14 @@ Front-End 개발자로 나아가기 위해 React.js를 학습한 내용을 정�
   - <span>25. LifeCycle Method</span>
   - <a href="https://github.com/uncyclocity/study_react/tree/main/1-26_componentdidcatch">26. componentDidCatch 로 에러 잡아내기</a>
 - 2장. 리액트 컴포넌트 스타일링하기
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/2-1_sass">1. Sass</a>
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/2-2_css-module">2. CSS Module</a>
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/2-3_styled-components">3. styled-components</a>
+  - <a href="https://github.com/uncyclocity/study_react/tree/main/2-01_sass">1. Sass</a>
+  - <a href="https://github.com/uncyclocity/study_react/tree/main/2-02_css-module">2. CSS Module</a>
+  - <a href="https://github.com/uncyclocity/study_react/tree/main/2-03_styled-components">3. styled-components</a>
 - <a href="https://github.com/uncyclocity/react_todoList">3장. 멋진 투두리스트 만들기 (별도 레포로 분리)</a>
 - 4장. API 연동하기
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/4-1_basic">1~2. API 연동의 기본</a>
+  - <a href="https://github.com/uncyclocity/study_react/tree/main/4-01~02_basic">1~2. API 연동의 기본</a>
+  - <a href="https://github.com/uncyclocity/study_react/tree/main/4-03_useasync">3. useAsync 커스텀 Hook 만들어서 사용하기</a>
+  - <a href="https://github.com/uncyclocity/study_react/tree/main/4-04_react-async">4. react-async 로 요청 상태 관리하기</a>
 
 > ### Refrences
 >
