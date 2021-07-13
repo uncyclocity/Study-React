@@ -1,12 +1,16 @@
 import { useUserState, useUserDispatch, getUsers } from "./UsersContext";
+import { useState, useEffect } from "react";
 import User from "./User";
-import { useState } from "react";
 
 function Users() {
+  const { data: users, loading, error } = useUserState().users;
+  const dispatch = useUserDispatch();
+
   const [userId, setUserId] = useState(false);
 
-  const { loading, error, data: users } = useUserState().users;
-  const dispatch = useUserDispatch();
+  useEffect(() => {
+    getUsers(dispatch);
+  }, [dispatch]);
 
   if (loading) return <>로딩중입니다...</>;
   if (error) return <>에러가 발생했습니다.</>;

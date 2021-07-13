@@ -1,11 +1,12 @@
+import UserProvider from "./UsersContext";
 import Users from "./Users";
-import UsersContext from "./UsersContext";
 
 function App() {
   return (
-    <UsersContext>
+    <UserProvider>
       <Users />
-    </UsersContext>
+    </UserProvider>
   );
 }
+
 export default App;

@@ -1,8 +1,8 @@
-import { useEffect } from "react";
 import { useUserState, useUserDispatch, getUser } from "./UsersContext";
+import { useEffect } from "react";
 
 function User({ id }) {
-  const { loading, error, data: users } = useUserState().user;
+  const { data: users, loading, error } = useUserState().user;
   const dispatch = useUserDispatch();
 
   useEffect(() => {
