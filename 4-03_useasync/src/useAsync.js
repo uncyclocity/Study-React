@@ -28,7 +28,7 @@ function reducer(state, action) {
         error: action.error,
       };
     default:
-      throw new Error(`'{action.type}'은 명시되지 않은 타입입니다.`);
+      throw new Error(`${action.type}은 명시되지 않은 타입입니다.`);
   }
 }
 
