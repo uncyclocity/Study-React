@@ -15,10 +15,8 @@ function User({ id }) {
   return (
     <div>
       <h1>{users.username}</h1>
-      <>
-        <b>Email : </b>
-        {users.email}
-      </>
+      <b>Email : </b>
+      {users.email}
     </div>
   );
 }

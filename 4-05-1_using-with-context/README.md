@@ -1,12 +1,12 @@
-# 챕터 4-05 : Context 와 함께 사용하기
+# 챕터 4-05 : Context 와 함께 사용하기(1)
 
 > 참고 : https://react.vlpt.us/integrate-api/05-using-with-context.html
 
 #### 📕 주로 배운 내용
 
-- API 연동 시 Context를 사용하면?
+- API 연동 × Context
 
-  - 여러 컴포넌트에 걸쳐서 사용하는 데이터가 있을 경우, Context를 사용하면 좋다.<br>
+  - 여러 컴포넌트에 걸쳐서 사용하는 데이터가 있을 경우 Context를 사용하면 좋다.<br>
     👉 예 : 사용자 프로필, 설정 값 등...
   - Context에 대한 자세한 내용은 <a href="https://github.com/uncyclocity/study_react/tree/main/1-22_context-dispatch">챕터 1-22</a> 참고
 
@@ -14,9 +14,9 @@
 
 - 「API 연동 × Context」 예제 코드
 
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/4-03_useasync/src">챕터 4-03의 코드</a>를 수정하였습니다.
-  - 기존 `useAsync` Hook의 기능을 `UserContext.js`에 통합하였습니다.
-  - 아래와 같이, `Users`와 `User`에서 사용되는 값들을 하나의 `state` 객체에 집어넣었습니다.
+  - <a href="https://github.com/uncyclocity/study_react/tree/main/4-03_useasync/src">챕터 4-03의 코드</a>를 변형하였다.
+  - 프로미스 함수와 처리 로직, 리듀서를 `UserContext.js`에 통합하였다.
+  - `useAsync` Hook이 사용되지 않는 만큼, 아래와 같이 `users`, `user`에 사용되는 상태를 지정하였다.
 
     ```
     state = {
@@ -112,7 +112,7 @@
   export const UserStateContext = createContext(null);
   export const UserDispatchContext = createContext(null);
 
-  export function UserProvider({ children }) {
+  export default function UserProvider({ children }) {
     const [state, dispatch] = useReducer(reducer, init);
 
     return (
@@ -165,6 +165,24 @@
   }
   ```
 
+  ##### `App.js`
+
+  ```
+  import UserProvider from "./UsersContext";
+  import Users from "./Users";
+
+  function App() {
+    // Users, User 컴포넌트에서 컨텍스트 값 불러올 수 있도록 감싸 주었다.
+    return (
+      <UserProvider>
+        <Users />
+      </UserProvider>
+    );
+  }
+
+  export default App;
+  ```
+
   ##### `Users.js`
 
   ```
@@ -173,7 +191,8 @@
   import User from "./User";
 
   function Users() {
-    const { loading, error, data: users } = useUserState();
+    // 각 컨텍스트를 가져오는 커스텀 Hook
+    const { loading, error, data: users } = useUserState().users;
     const dispatch = useUserDispatch();
 
     const [userId, setUserId] = useState(false);
@@ -189,7 +208,6 @@
       <div>
         <ul>
           {users.map((user) => (
-            // 누르면 userId 상태값으로 지정됨 -> User 컴포넌트 렌더링 내용이 보여짐
             <li
               key={user.id}
               onClick={() => setUserId(user.id)}
@@ -206,4 +224,35 @@
   }
 
   export default Users;
+  ```
+
+  ##### `User.js`
+
+  ```
+  import { useUserDispatch, useUserState, getUser } from "./UsersContext";
+  import { useEffect } from "react";
+
+  function User({ id }) {
+    // 각 컨텍스트를 가져오는 커스텀 Hook
+    const { loading, error, data: user } = useUserState().user;
+    const dispatch = useUserDispatch();
+
+    // id 값 변경에 따라 getUser() 호출
+    useEffect(() => {
+      getUser(dispatch, id);
+    }, [id]);
+
+    if (loading) return <div>로딩중입니다...</div>;
+    if (error) return <div>에러가 발생했습니다.</div>;
+    if (!user) return null;
+    return (
+      <div>
+        <h1>{user.username}</h1>
+        <b>Email : </b>
+        {user.email}
+      <div>
+    );
+  }
+
+  export default User;
   ```
