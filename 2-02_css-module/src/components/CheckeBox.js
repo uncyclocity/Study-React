@@ -1,7 +1,7 @@
 /*
   CSS Module
   - 고유 클래스명을 통해, 클래스명 중복을 방지한다.
-  - 외부 라이브러리이나, webpack의 css-loader 환경에서는 기본으로 지원한다. 👉 CRA도 해당
+  - 서드파티 라이브러리이나, webpack의 css-loader 환경에서는 기본으로 지원한다. 👉 CRA도 해당
   - 확장자를 '.module.css'로 하여 사용한다.
 */
 

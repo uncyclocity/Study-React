@@ -13,7 +13,7 @@
 
 - 시작하기
 
-  - 외부 라이브러리이므로 설치하여 import 해준다.
+  - 서드파티 라이브러리이므로 설치하여 import 해준다.
 
     ```
     $ yarn add react-async

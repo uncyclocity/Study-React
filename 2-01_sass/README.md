@@ -14,7 +14,7 @@
 
 - 시작하기
 
-  - 외부 라이브러리이므로 설치는 필수이다.
+  - 서드파티 라이브러리이므로 설치는 필수이다.
     ```
     $yarn add node-sass
     ```
@@ -188,7 +188,7 @@
     classNames(null, false, undefined, 0, 1, "Button"); // "1 Button"
     ```
 
-  - 외부 라이브러리이므로 설치 및 import가 필요하다.
+  - 서드파티 라이브러리이므로 설치 및 import가 필요하다.
     ```
     $yarn add classnames
     ```
