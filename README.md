@@ -1,9 +1,12 @@
 # 💻 React.js 개발자 준비
 
+프론트 개발자로의 첫 걸음🏃‍♂️
+
 ## 📃 개요
 
-Front-End 개발자로 나아가기 위해 React.js를 학습한 내용을 정리하는 리포지토리입니다.
-학습하면서 작성한 코드 및 배운 내용을 정리한 마크다운 문서가 담겨 있습니다.
+- Front-End 엔지니어로 나아가기 위해 React.js를 학습한 내용을 정리하는 리포지토리입니다.
+- 학습하면서 작성한 코드 및 배운 내용을 정리한 마크다운 문서가 담겨 있습니다.
+- 각 마크다운 문서는 수 차례의 수정 이후 velog에 업로드 예정입니다.
 
 ## 📔 규칙
 
@@ -51,7 +54,7 @@ Front-End 개발자로 나아가기 위해 React.js를 학습한 내용을 정�
   - <a href="https://github.com/uncyclocity/study_react/tree/main/4-05-2_using-with-context">5-2. Context 와 함께 사용하기(2)</a>
 - 5장. 리액트 라우터
   - <a href="https://github.com/uncyclocity/study_react/tree/main/5-1_concepts">1. 프로젝트 준비 및 기본적인 사용법</a>
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/5-2_concepts">2. 프로젝트 준비 및 기본적인 사용법</a>
+  - <a href="https://github.com/uncyclocity/study_react/tree/main/5-2_concepts">2. 파라미터와 쿼리</a>
 
 > ### Refrences
 >
