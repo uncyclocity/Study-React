@@ -1,46 +1,51 @@
-# 챕터 1-8 : input 상태 관리하기
+# 1-8. input 상태 관리하기
 
-> 참고 : https://react.vlpt.us/basic/08-manage-input.html
+> _References_ <br> https://react.vlpt.us/basic/08-manage-input.html
 
-#### 📕 주로 배운 내용
+## 📕 주로 배운 내용
 
-- 이벤트 객체
+- ### 이벤트 객체
 
-  - 이벤트에 등록하는 함수는 이벤트 객체 `e`를 파라미터로 받아올 수 있다.
-  - `e.target`은 **이벤트가 발생한 해당 DOM**을 가리킨다.<br>
-    사용예시) input 태그에 이벤트가 발생했을 경우, `.value` 값 가져오기
+  - 특정 태그의 이벤트 발생 시 실행하도록 지정한 함수의 경우, **이벤트 객체 `e`** 를 파라미터로 받아올 수 있다.
+  - `e.target`은 **이벤트가 발생한 해당 DOM**을 가리킨다. <br> 👉 `onChange`를 통해 input 태그의 입력값이 변경 될 때마다 입력값(`e.target.value`)을 받아올 수 있다.
 
-  ##### Counter.js
-
-  ```
-  import { useState } from 'react';
-
-  function InputSample() {
-    const [text, setText] = useState("");
-
+    ```javascript
     const onChange = (e) => {
+      console.log(e.target.value);
+    };
+
+    return <input onChange={onChange} />;
+    ```
+
+<br>
+
+- ### 「이벤트 객체 × input 상태 관리」 예제
+
+  - input에 입력할 때 마다 `text` 상태가 변경되며, 이는 input 태그의 value 값으로 연결된다.
+  - 초기화 버튼을 누르면 text 값을 빈 값으로 지정함 👉 input 태그의 value 값도 빈값이 된다.
+  - `App` 컴포넌트는 생략
+
+    **`InputSample.js`**
+
+    ```javascript
+    import { useState } from "react";
+
+    export default function InputSample() {
+      const [text, setText] = useState("");
+
       // e.target = 이벤트가 발생한 input 태그
-      setText(e.target.value);
-    };
+      const onChange = (e) => setText(e.target.value);
 
-    const reset = () => {
-      setText("");
-    };
+      const reset = () => setText("");
 
-    return (
-      <div>
-        {/*
-          value 값을 설정해 주면, 이벤트를 통해 input을 가리키는 상태가 바뀌었을 때
-          input의 내용도 업데이트 되도록 할 수 있다.
-        */}
-        <input onChange={onChange} value={text} />
-        <button onClick={reset}>초기화</button>
+      return (
         <div>
-          <b>값 : {text}</b>
+          <input onChange={onChange} value={text} />
+          <button onClick={reset}>초기화</button>
+          <div>
+            <b>값 : {text}</b>
+          </div>
         </div>
-      </div>
-    )
-  }
-
-  export default InputSample;
-  ```
+      );
+    }
+    ```

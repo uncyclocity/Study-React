@@ -16,7 +16,7 @@
       </div>
     );
     ```
-    👉 열림-닫힘을 일일이 써주기엔 좀 그렇다면, JSX의 **Self Closing(`<div />`) 문법**을 활용할 수 있다.
+    👉 열림-닫힘을 일일이 써주기 곤란하다면, JSX의 **Self Closing(`<div />`) 문법**을 활용할 수 있다.
     ```javascript
     return (
       <div>
@@ -37,14 +37,14 @@
     ```
 
     ```javascript
-    // 태그 하나로 감싸지 않았으므로 에러
+    // 에러
     return (
       <Component />
       <Component>내용</Component>
     );
     ```
 
-  - div를 쓰기 곤란할 경우, **Fragment 태그(`<></>`)** 를 사용할 수 있다.
+  - div 대신 **Fragment 태그(`<></>`)** 를 사용할 수 있다.
 
     ```javascript
     return (
@@ -55,11 +55,7 @@
     );
     ```
 
-<br>
-
-- ### JSX 내부에서 JS 사용
-
-  - 중괄호로 감싸서 사용할 수 있다.
+  - JSX 내부에서 JS를 사용하려면 **중괄호로 감싼다.**
 
     ```javascript
     const name = "Uncyclocity";
@@ -67,72 +63,68 @@
     ```
 
     ```javascript
-    const name = "Uncyclocity";
+    const myName = "Uncyclocity";
     const introduce = (name) => alert(`제 이름은 ${name}입니다.`);
-    return <button onClick={() => introduce(name)}>버튼</button>;
+
+    return <button onClick={() => introduce(myName)}>버튼</button>;
     ```
 
-  - 인라인 스타일은 객체 형태로 작성한다.
+<br>
+
+- ### 스타일링
+
+  - 인라인 스타일은 **객체 형태**로 작성한다.
+  - value 값으로 숫자만 입력하면, 픽셀 단위로 설정된다. <br> 그 외의 단위는 문자열로 입력해야한다. 「예) `fonsSize: "3rem"`」
+  - `background-color`와 같이 `-`가 들어간 속성은 `backgroundColor`과 같이 CamelCase 형태로 작성해야 한다.
 
     ```javascript
-    function Component() {
-      const style = {
-        fontSize: 25, // 기본 단위는 px이다.
-        color: "#47C83E",
+    const style = {
+      fontSize: 25, // 기본 단위는 px이다.
+      color: "#47C83E",
 
-        backgroundColor: "white",
-        boxShadow: "0px 0px 30px #86E57F", // box-shadow와 같이 '-'로 구분되어 있는 이름들은 camelCase 형태로 네이밍 해주어야 한다.
-        borderRadius: "30px",
+      backgroundColor: "white", // background-color ➡ backgroundColor
+      boxShadow: "0px 0px 30px #86E57F",
+      borderRadius: "30px",
 
-        width: "230px",
-        padding: "4rem", // px가 아닌 다른 단위를 사용하려면 문자열로 지정해야한다.
-      };
-      return <div style={style}>내용</div>;
-    }
-
-    export default Component;
+      width: "230px",
+      padding: "4rem", // px가 아닌 다른 단위를 사용하려면 문자열로 지정해야한다.
+    };
+    return <div style={style}>내용</div>;
     ```
 
     ```javascript
-    function Component() {
-      const color = "pink";
+    const color = "pink";
 
-      /*
-        객체를 내부에 넣어 주었다.
-        객체 리터럴 문법에 따라, 객체에 변수만 넣더라도 변수의 이름이 스타일 속성의 이름일 경우 스타일링이 이루어진다.
-      */
-      return <div style={{ color }}>내용</div>;
-    }
-
-    export default Component;
+    /* 객체 리터럴 문법에 따라, 객체에 변수만 넣더라도
+      변수의 이름이 스타일 속성의 이름일 경우 스타일링이 이루어진다. */
+    return <div style={{ color }}>내용</div>;
     ```
 
-  - 외부 CSS 파일을 가져올 수 있으며, CSS class를 설정 할 때는 HTML처럼 `class=`가 아닌, `className=`으로 설정 해주어야 한다.
+  - class를 설정 할 때는 HTML처럼 `class=`가 아닌, **`className=`으로 설정 해주어야 한다.**
 
     ```javascript
-    // 외부 CSS 파일 가져오기
+    <div className="main_page" />
+    ```
+
+  - 외부 스타일시트를 import하여 사용할 수 있다.
+
+    ```javascript
     import "./Component.css";
-
-    function Component() {
-      return <div className="button">GOT IT!</div>;
-    }
-
-    export default Component;
     ```
 
   <br>
 
-- ### JSX 안에서 주석 사용하기
+- ### 주석
 
-  ```javascript
-  function Component() {
+  - 주석 또한 JS 코드처럼 중괄호 내부에 작성한다.
+  - 여는 태그에도 주석을 작성할 수 있다.
+
+    ```javascript
     return (
-      <div
-      // 여는 태그 안에서는 주석을 이렇게도 작성할 수 있다.
+      <
+        // 여는 태그에 주석을 작성할 수 있다.
       >
-        {/*JSX 코드 내에서의 일반적인 주석 사용 방법*/}
-      </div>
+        {/* JSX 코드 내에서의 일반적인 주석 사용 방법 */}
+      </>
     );
-    export default Component;
-  }
-  ```
+    ```

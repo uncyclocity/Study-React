@@ -62,6 +62,8 @@
 >
 > <a href="https://xiubindev.tistory.com/category/Study/React">"Study/React"</a> _.xiubindev_
 >
+> <a href="https://webigotr.tistory.com/293">"React에서 불변성을 지켜야 하는 이유"</a> _.webigotr_
+>
 > <a href="https://www.zerocho.com/category/React/post/5f98e0ba1d7a110004463b7e">"React Hooks! useCallback편(React 17버전)"</a> _.zerocho_
 >
 > <a href="https://www.daleseo.com/react-hooks-use-callback/">"React Hooks: useCallback 사용법"</a> _.Dale Seo_

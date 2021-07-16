@@ -1,121 +1,91 @@
-# 챕터 1-5 : props를 통해 컴포넌트에게 값 전달하기
+# 1-5. props를 통해 컴포넌트에게 값 전달하기
 
-> 참고 : https://react.vlpt.us/basic/05-props.html
+> _References_ <br> https://react.vlpt.us/basic/05-props.html
 
-#### 📕 주로 배운 내용
+## 📕 주로 배운 내용
 
-- props 기본 규칙
+- ### props 기본 규칙
 
-  - props를 통해 특정 값이나 스타일 등을 컴포넌트에 전달하여 사용할 수 있다.
-  - props는 개수 제한이 없으며, 전달받은 props 각 값들이 들어간 객체 형태로 전달이 된다.
+  - props를 통해 **원하는 오브젝트를 컴포넌트에 전달하여 사용할 수 있다.**
 
-  ##### App.js
+    ```javascript
+    <Hello name="uncyclocity" />
+    ```
 
-  ```
-  import Hello from './components/Hello';
+  - props로 넘긴 오브젝트는 해당 컴포넌트의 **`props` 객체**에 저장된다.
 
-  function App() {
-    return <Hello name="uncyclocity" color="pink" />
-  }
+    ```javascript
+    export default function Hello(props) {
+      return <div>저의 이름은 {props.name} 입니다.</div>;
+    }
+    ```
 
-  export default App;
-  ```
+  - `defaultProps` 객체에 각 props의 기본값을 지정할 수 있다.
 
-  ##### Hello.js
+    ```javascript
+    export default function Hello(props) {
+      return <div>저의 이름은 {props.name} 입니다.</div>;
+    }
 
-  ```
-  function Hello(props) {
-    return <div style={{ color = props.color }}>저는 { props.name } 입니다.</div>
-  }
-
-  export default Hello;
-  ```
-
-  <br>
-
-- 비구조화 할당 활용
-
-  - props는 객체 형태이므로, 중괄호로 감싸서 각 값을 받아준다.
-
-  ##### Hello.js
-
-  ```
-  function Hello({ name, color }) {
-    return <div style={{ color }}>저는 { name } 입니다.</div>
-  }
-
-  export default Hello;
-  ```
-
-  <br>
-
-- `defaultProps` 객체를 이용한 props 기본 값 설정
-
-  ##### Hello.js
-
-  ```
-  function Hello({ name, color }) {
-    return <div style={{ color }}>저는 { name } 입니다.</div>
-  }
-
-  Hello.defaultProps = {
-    name: "Unkonwn",
-    color: "red"
-  }
-
-  export default Hello;
-  ```
-
-  <br>
-
-- `props.children` : 컴포넌트 열림/닫힘 태그 사이의 내용을 가리키는 props
-
-  ##### App.js
-
-  ```
-  import Hello from './components/Hello';
-  import Wrapper from './components/Wrapper';
-
-  function App() {
-    return (
-      <Wrapper
-      // children 내용을 감싸는 박스 역할인 컨테이너
-      >
-        <Hello name="Uncyclocity" color="pink" />
-      <Wrapper />
-    )
-  }
-
-  export default App;
-  ```
-
-  ##### Hello.js
-
-  ```
-  function Hello({ name, color }) {
-    return <div style={{ color }}>저는 { name } 입니다.</div>
-  }
-
-  export default Hello;
-  ```
-
-  ##### Wrapper.js
-
-  ```
-  function Wrapper({children}) {
-    // 인라인 스타일에 필요한 스타일링 객체 생성
-    const style = {
-      border: "2px solid pink",
-      padding: "16px",
+    Hello.defaultProps = {
+      name: "unknown",
     };
+    ```
 
-    return ({
-      <div style={style}>
-        {/* 결과적으로 Hello 컴포넌트의 내용이 이 안에 들어간다 */}
-        {children}
-      </div>
-    })
-  }
+<br>
 
-  export default Wrapper;
-  ```
+- ### 비구조화 할당 문법 응용
+
+  - **객체 비구조화 할당** 문법을 통해 props 객체의 키값들을 각각의 변수에 할당할 수 있다.
+
+    ```javascript
+    export default function Hello({ name }) {
+      return <div>저의 이름은 {name} 입니다.</div>;
+    }
+    ```
+
+  - 컴포넌트의 자식 요소는 `props.children`에 저장이 된다.
+
+    - 예시) 두 개의 자식 요소를 양옆으로 고정하는 컴포넌트 `Between`
+
+      ```javascript
+      export default function Between({ children }) {
+        const style = {
+          display: "flex",
+          justifyContent: "space-between",
+        };
+
+        return <div style={style}>{children}</div>;
+      }
+      ```
+
+      <center>⬇</center>
+
+      ```javascript
+      import Between from "./components/Between";
+
+      export default function App() {
+        return (
+          <Between>
+            <p>왼쪽</p>
+            <p>오른쪽</p>
+          </Between>
+        );
+      }
+      ```
+
+  - rest 연산자 활용
+
+    - `...rest`에는 객체/배열의 요소 中 **비구조화 할당에서 별도로 명시하지 않은 나머지 요소**들이 들어간다. (꼭 이름이 `rest`일 필요는 없다.)
+    - 같은 3점 연산자인 `spread`와 햇갈릴 수 있으나 역할은 전혀 다르다. (spread는 <a href="https://github.com/uncyclocity/study_react/tree/main/1-09_multiple_inputs">챕터 1-9</a> 참고)
+
+      ```javascript
+      <Button name="그냥버튼" onClick={() => console.log("버튼눌림")}>
+      ```
+
+      ```javascript
+      export default function Button({ name, ...rest }) {
+        // onClick은 rest로 들어간다 ➡ 버튼 눌리면 정상적으로 "버튼눌림"이 콘솔에 출력된다.
+        return <button {...rest}>{name}</button>;
+      }
+      ```

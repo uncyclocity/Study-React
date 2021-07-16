@@ -1,86 +1,88 @@
-# 챕터 1-9 : 여러개의 input 상태 관리하기
+# 1-9. 여러개의 input 상태 관리하기
 
-> 참고 : https://react.vlpt.us/basic/09-multiple-inputs.html
+> _References_ <br> https://react.vlpt.us/basic/09-multiple-inputs.html
 
-#### 📕 주로 배운 내용
+## 📕 주로 배운 내용
 
-- 여러개의 상태 관리하기
+- ### 여러개의 상태 관리하기
 
-  - `useState()` Hook을 사용할 때, 상태를 객체로 지정함으로써 복수의 상태를 관리할 수 있다.
-    ```
-    const [states, setStates] = useState({
-      id: 1,
-      name: "Uncyclocity"
+  - 상태를 객체로 지정하여 **복수의 값**을 동적으로 관리할 수 있다.
+
+    ```javascript
+    const [state, setState] = useState({
+      name: "백괴",
+      address: "성남시",
     });
     ```
 
-  <br>
+<br>
 
-- spread 연산자를 통해 불변성 지키기
+- ### spread 연산자로 복수의 값을 관리할 때의 불변성 지키기
 
-  - 상태 업데이트는 기존 상태를 수정하는 것이 아닌, 새로운 값을 상태로 지정해야만 한다. 이러한 작업을 **불변성을 지킨다** 라고 한다.
-  - `states[name] = "new name"` 형태로 업데이트해서는 안되며, 아래와 같이 새로운 객체를 만들어준다.
-    ```
-    // spread 연산자를 사용하여 기존 값들을 복붙해주었다.
-    setStates({
-      ...states,
-      [name]: "new name"
+  - 불변성을 지키기 위해서는 **새로운 객체**를 상태로 지정해주어야 한다.
+  - 기존 객체의 키값 中 일부만 수정하려면? **spread 연산자(`...`)를 통해 기존 객체의 키값들을 복붙해준다.**
+  - 같은 3점 연산자인 rest와 햇갈릴 수 있으나 역할은 전혀 다르다. (rest는 <a href="https://github.com/uncyclocity/study_react/tree/main/1-05_props">챕터 1-5</a> 참고)
+
+    ```javascript
+    /* 기존 객체의 키값을 spread로 복붙하고,
+    변경 할 키값만 새로 지정해주었다. */
+    setState({
+      ...state,
+      name: "흑괴",
     });
     ```
-  - 위와 같이, 복수의 상태를 관리할 때는 spread 연산자를 통해 기존의 값을 복붙해 준 다음, 그중에 원하는 상태의 값만 변경한 객체를 만들어 새 상태로 지정한다.
 
-  <br>
+<br>
 
-- 사용 예시
+- ### 「이벤트 객체 × 여러개의 input 상태 관리」 예제
 
-  ##### InputSample.js
+  - <a href="https://github.com/uncyclocity/study_react/tree/main/1-08_manage-input">이전 챕터</a>의 예제 코드를 변형함
+  - 두 개의 input 태그 中 입력값이 변경 된 input 태그를 가리키는 키값을 갱신해준다.
+  - `App` 컴포넌트는 생략
 
-  ```
-  import { useState } from 'react';
+    **`InputSample.js`**
 
-  function InputSample() {
-    // 객체를 통한 복수의 상태 지정
-    const [inputs, setInputs] = useState({
-      fullname: "",
-      nickname: ""
-    });
+    ```javascript
+    import { useState } from "react";
 
-    // 객체 비구조 할당을 통해 각 상태값을 가져올 수 있다.
-    const {fullname, nickname} = inputs;
-
-    const onChange = e => {
-      // 인자로 받는 e.target이 객체 리터럴이므로, 객체 비구조 할당으로 name, value 값을 가져온다.
-      const {name, value} = e.target;
-
-      /*
-      spread operator을 이용하여 기존 상태의 요소만 가져옴
-      -> 그중에서도 inputs[name 변수 값]의 값을 바꾼 객체를 새 상태로 설정하여 불변성을 지킴
-      */
-      useState({
-        ...inputs,
-        [name]: value,
-      });;
-    };
-
-    const reset = () => {
-      useState({
-          fullname: "",
-          nickname: ""
+    export default function InputSample() {
+      const [inputs, setInputs] = useState({
+        fullname: "",
+        nickname: "",
       });
-    };
 
-    return (
-      <div>
-        <input name="fullname" value={fullname} onChange={onchange} />
-        <input name="nickname" value={nickname} onChange={onchange} />
-        <button onClick={reset}>초기화</button>
+      // 객체 비구조 할당(1) : 상태 객체의 각 값을 가져옴
+      const { fullname, nickname } = inputs;
+
+      const onChange = (e) => {
+        // 객체 비구조 할당(2) : 이벤트가 발생한 input 태그의 name, value 값을 가져옴
+        const { name, value } = e.target;
+
+        /* spread operator로 기존 상태 객체의 키값들을 가져오고,
+        그중에서도 이벤트 발생 input 태그를 가리키는 키값만 변경해주었음 */
+        useState({
+          ...inputs,
+          [name]: value,
+        });
+      };
+
+      const reset = () => {
+        useState({
+          fullname: "",
+          nickname: "",
+        });
+      };
+
+      return (
         <div>
-          <b>값 : </b>
-          {nickname ? fullname + "(" + nickname + ")" : fullname}
+          <input name="fullname" value={fullname} onChange={onchange} />
+          <input name="nickname" value={nickname} onChange={onchange} />
+          <button onClick={reset}>초기화</button>
+          <div>
+            <b>값 : </b>
+            {nickname ? fullname + "(" + nickname + ")" : fullname}
+          </div>
         </div>
-      </div>
-    );
-  }
-
-  export default InputSample;
-  ```
+      );
+    }
+    ```
