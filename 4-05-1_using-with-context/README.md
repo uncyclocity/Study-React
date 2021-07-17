@@ -1,4 +1,4 @@
-# 챕터 4-05 : Context 와 함께 사용하기(1)
+# 챕터 4-5 : Context 와 함께 사용하기(1)
 
 > 참고 : https://react.vlpt.us/integrate-api/05-using-with-context.html
 
@@ -14,7 +14,7 @@
 
 - 「API 연동 × Context」 예제 코드
 
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/4-03_useasync/src">챕터 4-03의 코드</a>를 변형하였다.
+  - <a href="https://github.com/uncyclocity/study_react/tree/main/4-03_useasync/src">챕터 4-3의 코드</a>를 변형하였다.
   - 프로미스 함수와 처리 로직, 리듀서를 `UserContext.js`에 통합하였다.
   - `useAsync` Hook이 사용되지 않는 만큼, 아래와 같이 `users`, `user`에 사용되는 상태를 지정하였다.
 

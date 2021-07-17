@@ -1,4 +1,4 @@
-# 챕터 2-01 : Sass
+# 챕터 2-1 : Sass
 
 > 참고 <br> https://react.vlpt.us/styling/01-sass.html <br> https://velopert.com/1712
 

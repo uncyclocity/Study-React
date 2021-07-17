@@ -1,4 +1,4 @@
-# 챕터 2-03 : styled-components
+# 챕터 2-3 : styled-components
 
 > 참고 <br> https://react.vlpt.us/styling/03-styled-components.html <br> https://agal.tistory.com/170 <br> https://brunch.co.kr/@99-life/3
 

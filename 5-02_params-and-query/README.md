@@ -1,4 +1,4 @@
-# 챕터 5-02 : 파라미터와 쿼리
+# 챕터 5-2 : 파라미터와 쿼리
 
 > 참고 : https://react.vlpt.us/react-router/02-params-and-query.html
 

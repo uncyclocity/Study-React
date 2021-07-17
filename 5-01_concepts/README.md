@@ -1,4 +1,4 @@
-# 챕터 5-01 : 프로젝트 준비 및 기본적인 사용법
+# 챕터 5-1 : 프로젝트 준비 및 기본적인 사용법
 
 > 참고 <br> https://react.vlpt.us/react-router/01-concepts.html <br> https://react.vlpt.us/react-router/
 

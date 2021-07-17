@@ -1,4 +1,4 @@
-# 챕터 2-02 : CSS Module
+# 챕터 2-2 : CSS Module
 
 > 참고 : https://react.vlpt.us/styling/02-css-module.html
 

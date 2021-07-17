@@ -1,4 +1,4 @@
-# 챕터 4-05 : Context 와 함께 사용하기(2)
+# 챕터 4-5 : Context 와 함께 사용하기(2)
 
 > 참고 : https://react.vlpt.us/integrate-api/05-using-with-context.html
 
@@ -6,7 +6,7 @@
 
 - 함수화를 통한 로직 반복 최소화
 
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/4-05-1_using-with_context">챕터 4-05-1</a>의 코드는 정석적인 「API 연동 × Context」 패턴이라고 할 수 있지만, 반복되는 로직의 존재로 인해 눈쌀이 찌푸려질 수 있었다.<br>
+  - <a href="https://github.com/uncyclocity/study_react/tree/main/4-05-1_using-with_context">챕터 4-5-1</a>의 코드는 정석적인 「API 연동 × Context」 패턴이라고 할 수 있지만, 반복되는 로직의 존재로 인해 눈쌀이 찌푸려질 수 있었다.<br>
     👉 `UsersContext.js`의 리듀서, API 연동/처리 로직이 이에 해당한다.
   - 반복되는 로직을 함수화하게 되면, 재활용이 수월해지기에 비슷한 코드의 반복을 최소화할 수 있다.
 

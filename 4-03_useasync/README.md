@@ -1,4 +1,4 @@
-# 챕터 4-03 : useAsync 커스텀 Hook 만들어서 사용하기
+# 챕터 4-3 : useAsync 커스텀 Hook 만들어서 사용하기
 
 > 참고 : https://react.vlpt.us/integrate-api/03-useAsync.html
 

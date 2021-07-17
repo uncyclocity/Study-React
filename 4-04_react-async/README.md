@@ -1,4 +1,4 @@
-# 챕터 4-04 : react-async 로 요청 상태 관리하기
+# 챕터 4-4 : react-async 로 요청 상태 관리하기
 
 > 참고 : https://react.vlpt.us/integrate-api/04-react-async.html
 
