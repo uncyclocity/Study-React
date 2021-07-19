@@ -4,9 +4,9 @@
 
 ## 📃 개요
 
-- Front-End 엔지니어로 나아가기 위해 React.js를 학습한 내용을 정리하는 리포지토리입니다.
+- Front-End 엔지니어로 나아가기 위해 React.js를 학습한 내용을 정리하는 레포입니다.
 - 학습하면서 작성한 코드 및 배운 내용을 정리한 마크다운 문서가 담겨 있습니다.
-- 각 마크다운 문서는 수 차례의 수정 이후 velog에 업로드 예정입니다.
+- 각 마크다운 문서는 수 차례의 수정 이후 velog에 업로드 할 계획입니다.
 
 ## 📔 규칙
 
@@ -61,6 +61,8 @@
 > <a href="https://react.vlpt.us/">"벨로퍼트와 함께하는 모던 리액트"</a> _.velopert_
 >
 > <a href="https://xiubindev.tistory.com/category/Study/React">"Study/React"</a> _.xiubindev_
+>
+> <a href="https://velog.io/@lua_aw/201105-2-React-보일러플레이트-CRACreate-React-App">(2) React 보일러 플레이트 Boiler Plate CRA(Create-React-App)</a> _.IUA_
 >
 > <a href="https://webigotr.tistory.com/293">"React에서 불변성을 지켜야 하는 이유"</a> _.webigotr_
 >

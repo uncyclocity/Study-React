@@ -1,6 +1,6 @@
 # 1-3. 나의 첫번째 리액트 컴포넌트
 
-> _References_ <br> https://react.vlpt.us/basic/02-prepare.html <br> https://react.vlpt.us/basic/03-first-component.html
+> _References_ <br> https://react.vlpt.us/basic/02-prepare.html <br> https://react.vlpt.us/basic/03-first-component.html <br> https://velog.io/@lua_aw/201105-2-React-보일러플레이트-CRACreate-React-App
 
 ## 📕 주로 배운 내용
 
@@ -10,6 +10,8 @@
   $ npx create-react-app 디렉터리명
   ```
 
+  - CRA란? 'create react app'의 약자로, 페이스북에서 제공하는 공식 **보일러플레이트 코드**이다. <br> 👉 보일러플레이트 코드란? **최소한의 변경으로 널리 사용되는 코드**를 말한다 <br> 변경이 거의 없는 리액트 앱을 생성하는 코드이며, 널리 사용되므로 CRA는 보일러플레이트라고 할 수 있다.
+  - CRA는 npm의 CLI인 `npx` 명령어로 사용할 수 있으며, 직접 하면 번거로운 **환경 설정이 적용 된 프로젝트**를 만들어준다.
   - **npm이 설치되어 있는 환경**에서 위와 같이 명령어를 입력하면, CRA 프로젝트를 만들 수 있다.
   - 보통 JS 및 스타일링 코드는 CRA 프로젝트 내부의 **`src` 디렉터리**에서 생성한다.
 
@@ -52,6 +54,7 @@
 
   - `ReactDom.render`를 통해 실제 DOM으로 리액트 컴포넌트를 렌더링을 수행한다.
   - `public` 폴더 내부의 `index.html`에 랜더링이 진행되며, id가 `root`인 div 태그가 대상이다.
+  - 서버를 켠 상태에서 컴포넌트를 수정하면 1~2초 이내에 변경 된 상태로 새로고침이 되며, 이러한 기술을 **Fast Refresh** 라고 한다.
 
     **`index.js`**
 
