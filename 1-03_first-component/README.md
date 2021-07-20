@@ -6,13 +6,11 @@
 
 - ### CRA 프로젝트 생성
 
-  ```bash
-  $ npx create-react-app 디렉터리명
-  ```
-
-  - CRA란? 'create react app'의 약자로, 페이스북에서 제공하는 공식 **보일러플레이트 코드**이다. <br> 👉 보일러플레이트 코드란? **최소한의 변경으로 널리 사용되는 코드**를 말한다 <br> 변경이 거의 없는 리액트 앱을 생성하는 코드이며, 널리 사용되므로 CRA는 보일러플레이트라고 할 수 있다.
-  - CRA는 npm의 CLI인 `npx` 명령어로 사용할 수 있으며, 직접 하면 번거로운 **환경 설정이 적용 된 프로젝트**를 만들어준다.
-  - **npm이 설치되어 있는 환경**에서 위와 같이 명령어를 입력하면, CRA 프로젝트를 만들 수 있다.
+  - CRA는 'create react app'의 약자로, 페이스북에서 제공하는 공식 **보일러플레이트 코드**이다. <br> 👉 보일러플레이트 코드란? **최소한의 변경으로 널리 사용되는 코드**를 말한다 <br> 변경이 거의 없는 리액트 앱을 생성하는 코드이며, 널리 사용되므로 CRA는 보일러플레이트라고 할 수 있다.
+  - CRA는 npm의 CLI인 `npx` 명령어로 사용할 수 있으며, **환경 설정이 적용 된 프로젝트**를 만들어준다.
+    ```bash
+    $ npx create-react-app 디렉터리명
+    ```
   - 보통 JS 및 스타일링 코드는 CRA 프로젝트 내부의 **`src` 디렉터리**에서 생성한다.
 
 <br>
@@ -23,16 +21,16 @@
 
   ```javascript
   function Hello() {
-    // 뷰를 정의하는 「JSX 코드」 반환
+    // 뷰를 정의하는「JSX 코드」반환
     return <div>안녕하세요</div>;
   }
 
-  // 「Hello」 컴포넌트 함수를 내보내주었다.
+  // 컴포넌트 함수「Hello」를 내보내주었다.
   export default Hello;
   ```
 
-  - 컴포넌트는 **JSX**를 반환한다, <br> JSX는 리액트에서 **뷰를 정의할 때 사용되는 문법**이며, HTML과 약간의 문법 차이가 존재한다. 자세히는 <a href="">챕터 1-4</a> 참고
-  - 컴포넌트 함수를 **`export`를 이용하여 내보내주었다.** 이는 다른 파일에서 `import`를 통해 해당 컴포넌트를 불러올 수 있도록 한다.<br>
+  - 컴포넌트는 **JSX**를 반환한다, <br> JSX는 리액트에서 **뷰를 정의할 때 사용되는 문법**이며, HTML과 약간의 문법 차이가 존재한다. 자세히는 <a href="https://github.com/uncyclocity/study_react/tree/main/1-04_jsx">챕터 1-4</a> 참고
+  - 컴포넌트 함수를 **`export`를 이용하여 내보내주었다.** 이는 다른 파일에서 **`import`를 통해 해당 컴포넌트를 불러올 수 있도록 한다.**<br>
 
     ```javascript
     export default Hello;
@@ -41,11 +39,11 @@
     여기서 `default`는 기본값으로 사용한다는 의미이며, 기본값 여부에 따라 추후 다른 파일에 불러올 때 차이가 생긴다.
 
     ```javascript
-    import Hello from "./Hello"; //기본값 O
+    import Hello from "./Hello"; // default
     ```
 
     ```javascript
-    import { Hello } from "./Hello"; //기본값 X
+    import { Hello } from "./Hello"; // not default
     ```
 
 <br>

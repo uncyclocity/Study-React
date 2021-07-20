@@ -27,6 +27,21 @@
     );
     ```
 
+  - [번외] 조건부 스타일링 : 객체 형태인 **인라인 스타일링**일 경우 해당
+
+    ```javascript
+    const style = {
+      cursor: "pointer",
+      color: user.active ? "green" : "black",
+    };
+
+    return (
+      <div>
+        <b style={style}>{user.username}</b>
+      </div>
+    );
+    ```
+
 <br>
 
 - ### `<Component isTrue={true} />` **=** `<Component isTrue />`

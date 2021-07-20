@@ -12,7 +12,6 @@ function User({ user, onRemove, activer }) {
         {user.username}
       </b>
       <span>({user.email})</span>
-      {/* JSX 외부의 함수에 파라미터를 넘기려면 화살표 함수를 사용하여야 한다. */}
       <button onClick={() => onRemove(user.id)}>삭제하즈아</button>
     </div>
   );

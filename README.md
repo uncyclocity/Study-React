@@ -27,9 +27,7 @@
   - <a href="https://github.com/uncyclocity/study_react/tree/main/1-09_multiple_inputs">9. 여러개의 input 상태 관리하기</a>
   - <a href="https://github.com/uncyclocity/study_react/tree/main/1-10_useref">10. useRef 로 특정 DOM 선택하기</a>
   - <a href="https://github.com/uncyclocity/study_react/tree/main/1-11_render-array">11. 배열 렌더링하기</a>
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/1-12%7E13_array-insert">12~13. useRef로 컴포넌트 안의 변수 만들고 배열에 항목 추가하기</a>
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/1-14_array-remove">14. 배열에 항목 제거하기</a>
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/1-15_array-modify">15. 배열 항목 수정하기</a>
+  - <a href="https://github.com/uncyclocity/study_react/tree/main/1-12%7E15_array-modify">1-12~15. 배열 요소의 추가/삭제/수정</a>
   - <a href="https://github.com/uncyclocity/study_react/tree/main/1-16_useeffect">16. useEffect를 사용하여 마운트/언마운트/업데이트시 할 작업 설정하기</a>
   - <a href="https://github.com/uncyclocity/study_react/tree/main/1-17_usememo">17. useMemo 를 사용하여 연산한 값 재사용하기</a>
   - <a href="https://github.com/uncyclocity/study_react/tree/main/1-18_usecallback">18. useCallback 을 사용하여 함수 재사용하기</a>
@@ -53,8 +51,8 @@
   - <a href="https://github.com/uncyclocity/study_react/tree/main/4-05-1_using-with-context">5-1. Context 와 함께 사용하기(1)</a>
   - <a href="https://github.com/uncyclocity/study_react/tree/main/4-05-2_using-with-context">5-2. Context 와 함께 사용하기(2)</a>
 - 5장. 리액트 라우터
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/5-1_concepts">1. 프로젝트 준비 및 기본적인 사용법</a>
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/5-2_concepts">2. 파라미터와 쿼리</a>
+  - <a href="https://github.com/uncyclocity/study_react/tree/main/5-01_concepts">1. 프로젝트 준비 및 기본적인 사용법</a>
+  - <a href="https://github.com/uncyclocity/study_react/tree/main/5-02_concepts">2. 파라미터와 쿼리</a>
 
 > ### Refrences
 >

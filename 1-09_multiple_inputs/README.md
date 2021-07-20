@@ -19,13 +19,13 @@
 
 - ### spread 연산자로 복수의 값을 관리할 때의 불변성 지키기
 
-  - 불변성을 지키기 위해서는 **새로운 객체**를 상태로 지정해주어야 한다.
-  - 기존 객체의 키값 中 일부만 수정하려면? **spread 연산자(`...`)를 통해 기존 객체의 키값들을 복붙해준다.**
-  - 같은 3점 연산자인 rest와 햇갈릴 수 있으나 역할은 전혀 다르다. (rest는 <a href="https://github.com/uncyclocity/study_react/tree/main/1-05_props">챕터 1-5</a> 참고)
+  - 상태의 불변성을 지키기 위해서는, **새로운 객체**를 상태로 지정해주어야 한다.
+  - 기존 state 객체의 일부만 수정하려면? **spread 연산자(`...`)** 를 통해 **기존 객체의 키값들을 복붙해준다.**
+  - 같은 3점 연산자인 rest와 햇갈릴 수 있으나 역할은 전혀 다르다. <br> (rest에 대한 설명은 <a href="https://github.com/uncyclocity/study_react/tree/main/1-05_props">챕터 1-5</a> 참고)
 
     ```javascript
     /* 기존 객체의 키값을 spread로 복붙하고,
-    변경 할 키값만 새로 지정해주었다. */
+    변경 할 key(name)의 값만 새로 지정한 객체를 상태로 지정해주었다. */
     setState({
       ...state,
       name: "흑괴",
@@ -36,7 +36,7 @@
 
 - ### 「이벤트 객체 × 여러개의 input 상태 관리」 예제
 
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/1-08_manage-input">이전 챕터</a>의 예제 코드를 변형함
+  - <a href="https://github.com/uncyclocity/study_react/tree/main/1-08_manage-input">이전 챕터</a>의 예제 코드를 변형하였다.
   - 두 개의 input 태그 中 입력값이 변경 된 input 태그를 가리키는 키값을 갱신해준다.
   - `App` 컴포넌트는 생략
 
