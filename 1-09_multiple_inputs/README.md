@@ -6,7 +6,7 @@
 
 - ### 여러개의 상태 관리하기
 
-  - 상태를 객체로 지정하여 **복수의 값**을 동적으로 관리할 수 있다.
+  - 상태를 객체로 지정하여 **복수의 값을 동적으로 관리할 수 있다.**
 
     ```javascript
     const [state, setState] = useState({
@@ -20,8 +20,24 @@
 - ### spread 연산자로 복수의 값을 관리할 때의 불변성 지키기
 
   - 상태의 불변성을 지키기 위해서는, **새로운 객체**를 상태로 지정해주어야 한다.
-  - 기존 state 객체의 일부만 수정하려면? **spread 연산자(`...`)** 를 통해 **기존 객체의 키값들을 복붙해준다.**
+  - spread 연산자는 배열/객체 요소들의 **원시값**을 다른 배열/객체로 복붙해준다.
+
+    ```javascript
+    const arr = [1, 2, 3, 4];
+    const arr_plus = [...arr, 5, 6];
+
+    console.log(arr_plus);
+    ```
+
+    <center> ⬇ </center>
+
+    ```bash
+    [1, 2, 3, 4, 5, 6]
+    ```
+
+  - 이를 통해 **기존 객체의 값을 복붙하고 원하는 부분만 다른 것으로 바꿈**으로서, 불변성을 지킨 state 객체 수정을 이루어낼 수 있다.
   - 같은 3점 연산자인 rest와 햇갈릴 수 있으나 역할은 전혀 다르다. <br> (rest에 대한 설명은 <a href="https://github.com/uncyclocity/study_react/tree/main/1-05_props">챕터 1-5</a> 참고)
+  - 활용 예시
 
     ```javascript
     /* 기존 객체의 키값을 spread로 복붙하고,

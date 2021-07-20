@@ -27,7 +27,7 @@
     );
     ```
 
-  - [번외] 조건부 스타일링 : 객체 형태인 **인라인 스타일링**일 경우 해당
+  - [번외] 조건부 스타일링 : 객체로 스타일링을 하는 **인라인 스타일링**일 경우 해당
 
     ```javascript
     const style = {
@@ -46,7 +46,7 @@
 
 - ### `<Component isTrue={true} />` **=** `<Component isTrue />`
 
-  - props의 값 세팅을 생략하면 `true`로 자동 셋팅된다.
+  - props의 값 셋팅을 생략하면 `true`로 자동 셋팅된다.
 
     ```javascript
     // 둘 다 같은 코드다.

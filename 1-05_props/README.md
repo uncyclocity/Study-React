@@ -77,7 +77,23 @@
   - rest 연산자 활용
 
     - `...rest`에는 객체/배열의 요소 中 **비구조화 할당에서 별도로 명시하지 않은 나머지 요소**들이 들어간다. (꼭 이름이 `rest`일 필요는 없다.)
+
+      ```javascript
+      const arr = [1, 2, 3, 4];
+      const [one, two, ...rest] = arr;
+
+      console.log(rest);
+      ```
+
+      <center> ⬇ </center>
+
+      ```bash
+      [3, 4]
+      ```
+
     - 같은 3점 연산자인 `spread`와 햇갈릴 수 있으나 역할은 전혀 다르다. <br> (spread에 대한 설명은 <a href="https://github.com/uncyclocity/study_react/tree/main/1-09_multiple_inputs">챕터 1-9</a> 참고)
+
+    - 활용 예시
 
       ```javascript
       <Button name="그냥버튼" onClick={() => console.log("버튼눌림")}>

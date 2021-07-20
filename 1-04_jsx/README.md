@@ -73,38 +73,34 @@
 
 - ### 스타일링
 
-  - 인라인 스타일은 **객체 형태**로 작성한다.
-  - value 값으로 숫자만 입력하면, 픽셀 단위로 설정된다. <br> 그 외의 단위는 문자열로 입력해야한다. 「예) `fonsSize: "3rem"`」
-  - `background-color`와 같이 `-`가 들어간 속성은 `backgroundColor`과 같이 CamelCase 형태로 작성해야 한다.
+  - 인라인 스타일
 
-    ```javascript
-    const style = {
-      fontSize: 25, // 기본 단위는 px이다.
-      color: "#47C83E",
+    - **객체 형태**로 작성한다.
+    - value 값으로 숫자만 입력하면, 픽셀 단위로 설정된다. <br> 그 외의 단위는 문자열로 입력해야한다. 「예) `fonsSize: "3rem"`」
+    - `background-color`와 같이 `-`가 들어간 속성은 `backgroundColor`과 같이 CamelCase 형태로 작성해야 한다.
 
-      backgroundColor: "white", // background-color ➡ backgroundColor
-      boxShadow: "0px 0px 30px #86E57F",
-      borderRadius: "30px",
+      ```javascript
+      const style = {
+        fontSize: 25, // 기본 단위는 px이다.
+        color: "#47C83E",
 
-      width: "230px",
-      padding: "4rem", // px가 아닌 다른 단위를 사용하려면 문자열로 지정해야한다.
-    };
-    return <div style={style}>내용</div>;
-    ```
+        backgroundColor: "white", // background-color ➡ backgroundColor
+        boxShadow: "0px 0px 30px #86E57F",
+        borderRadius: "30px",
 
-    ```javascript
-    const color = "pink";
+        width: "230px",
+        padding: "4rem", // px가 아닌 다른 단위를 사용하려면 문자열로 지정해야한다.
+      };
+      return <div style={style}>내용</div>;
+      ```
 
-    /* 객체 리터럴 문법에 따라, 객체에 변수만 넣더라도
+      ```javascript
+      const color = "pink";
+
+      /* 객체 리터럴 문법에 따라, 객체에 변수만 넣더라도
       변수의 이름이 스타일 속성의 이름일 경우 스타일링이 이루어진다. */
-    return <div style={{ color }}>내용</div>;
-    ```
-
-  - class를 설정 할 때는 HTML처럼 `class=`가 아닌, **`className=`으로 설정 해주어야 한다.**
-
-    ```javascript
-    <div className="main_page" />
-    ```
+      return <div style={{ color }}>내용</div>;
+      ```
 
   - 외부 스타일시트를 import하여 사용할 수 있다.
 
@@ -112,12 +108,20 @@
     import "./Component.css";
     ```
 
+  - styled-components 등을 이용하여 JS 파일 내부에 CSS 코드를 작성할 수 있으며, 이를 **CSS in JS**라고 한다. <br> (styled-components에 대한 내용은 <a href="https://github.com/uncyclocity/study_react/tree/main/2-03_styled-components">챕터 2-3</a> 참고)
+
+  - class를 설정 할 때는 HTML처럼 `class=`가 아닌, **`className=`으로 설정 해주어야 한다.**
+
+    ```javascript
+    <div className="main_page" />
+    ```
+
   <br>
 
 - ### 주석
 
   - 주석 또한 JS 코드처럼 중괄호 내부에 작성한다.
-  - 여는 태그에도 주석을 작성할 수 있다.
+  - 여는 태그의 내부에도 주석을 작성할 수 있다.
 
     ```javascript
     return (

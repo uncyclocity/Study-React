@@ -4,23 +4,6 @@
 
 ## 📕 주로 배운 내용
 
-- ### [번외] JSX 에서의 이벤트 설정
-
-  - HTML 과 달리, JSX에서 이벤트는 **`on` 다음의 글자를 대문자로 표기한다.** <br> `onclick` ➡ `onClick`
-  - 보통 `on이벤트이름={실행할함수}` 형태로 작성한다.
-
-    ```javascript
-    const greeting = () => {
-      console.log("Hello World");
-    };
-
-    return <button onClick={greeting}></button>;
-    ```
-
-  - `onClick={onIncrease()}`와 같이 함수 실행 코드를 넣으면, 이벤트 발생 여부와 상관없이 **렌더링 시점에서 함수가 호출되어 버린다.** <br> 👉 `onClick={onIncrease}`(화살표 함수일 경우) 혹은 `onClick={() => onIncrease()}` 형태로 작성한다. <br> 파라미터를 넘겨주어야 할 경우에는 후자로 작성하면 된다.
-
-<br>
-
 - ### `useState` Hook을 통한 상태 관리
 
   - 함수형 컴포넌트에서는 **Hooks**를 통해 다양한 작업을 수행할 수 있다.
@@ -54,12 +37,29 @@
   - 상태를 변경 할 경우, 기존 값을 수정하는 것이 아닌 **새로운 값을 상태로 지정해주어야 한다.** <br> 👉 이를 **"불변성을 지킨다"** 라고 한다.
   - 불변성을 지키는 이유 : 리액트는 상태 변경에 따라 리렌더링을 수행하는데, 현재 상태와 바뀔 상태의 값을 **참조값**으로 비교하기 때문이다.
 
-    ```javascript
-    const [state, setState] = useState(false);
+        ```javascript
+        const [state, setState] = useState(false);
 
-    // state = true 👉 참조값이 변경되지 않기 때문에 불변성 X
-    setState(state); // 불변성 O
+        // state = true 👉 참조값이 변경되지 않기 때문에 불변성 X
+        setState(state); // 불변성 O
+        ```
+
+    <br>
+
+- ### [번외] JSX 에서의 이벤트 설정
+
+  - HTML 과 달리, JSX에서 이벤트는 **`on` 다음의 글자를 대문자로 표기한다.** <br> `onclick` ➡ `onClick`
+  - 보통 `on이벤트이름={실행할함수}` 형태로 작성한다.
+
+    ```javascript
+    const greeting = () => {
+      console.log("Hello World");
+    };
+
+    return <button onClick={greeting}></button>;
     ```
+
+  - `onClick={onIncrease()}`와 같이 함수 실행 코드를 넣으면, 이벤트 발생 여부와 상관없이 **렌더링 시점에서 함수가 호출되어 버린다.** <br> 👉 `onClick={onIncrease}`(화살표 함수일 경우) 혹은 `onClick={() => onIncrease()}` 형태로 작성한다. <br> 파라미터를 넘겨주어야 할 경우에는 후자로 작성하면 된다.
 
 <br>
 

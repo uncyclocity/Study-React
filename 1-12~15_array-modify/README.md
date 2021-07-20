@@ -4,9 +4,9 @@
 
 ## 📕 주로 배운 내용
 
-- ### 배열을 동적으로 관리하기 위한 준비
+- ### 배열을 동적으로 업데이트 하기 위한 준비
 
-  - React 앱에서 배열 요소를 추가하고 이를 렌더링하려면, 배열을 **state 값**으로 설정해주어야 한다.
+  - React 앱에서 배열 요소를 추가하고 이를 렌더링하려면, 배열을 **state 값**으로 설정해주어야 한다. <br> 이는 즉, 배열 업데이트 또한 **불변성**을 지켜 가며 수행해야 됨을 뜻한다. <br> (상태 불변성에 대한 내용은 <a href="https://github.com/uncyclocity/study_react/tree/main/1-07_usestate">챕터 1-7</a> 참고)
 
     ```javascript
     const [users, setUsers] = useState([
