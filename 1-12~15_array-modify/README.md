@@ -28,7 +28,7 @@
     ]);
     ```
 
-  - 각 배열 요소의 고유값인 `id`의 경우, ref 변수를 통해 효과적으로 관리할 수 있다. <br> (ref 변수에 대한 내용은 <a href="https://github.com/uncyclocity/study_react/tree/main/1-10_useref">챕터 1-10</a> 참고)
+  - 각 배열 요소의 고유값인 `id`의 경우, **ref 변수**를 통해 효과적으로 관리할 수 있다. <br> (ref 변수에 대한 내용은 <a href="https://github.com/uncyclocity/study_react/tree/main/1-10_useref">챕터 1-10</a> 참고)
 
     ```javascript
     const nextId = useRef(users.length);

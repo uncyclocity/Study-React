@@ -17,8 +17,6 @@
 
 - ### 함수형 컴포넌트의 기본 구조
 
-  **`Hello.js`**
-
   ```javascript
   function Hello() {
     // 뷰를 정의하는「JSX 코드」반환
