@@ -52,7 +52,7 @@
   - <a href="https://github.com/uncyclocity/study_react/tree/main/4-05-2_using-with-context">5-2. Context 와 함께 사용하기(2)</a>
 - 5장. 리액트 라우터
   - <a href="https://github.com/uncyclocity/study_react/tree/main/5-01_concepts">1. 프로젝트 준비 및 기본적인 사용법</a>
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/5-02_concepts">2. 파라미터와 쿼리</a>
+  - <a href="https://github.com/uncyclocity/study_react/tree/main/5-02_params-and-query">2. 파라미터와 쿼리</a>
 
 > ### Refrences
 >
