@@ -76,7 +76,7 @@
   - 인라인 스타일
 
     - **객체 형태**로 작성한다.
-    - value 값으로 숫자만 입력하면, 픽셀 단위로 설정된다. <br> 그 외의 단위는 문자열로 입력해야한다. 「예) `fonsSize: "3rem"`」
+    - value 값으로 숫자만 입력하면, 픽셀 단위로 설정된다. <br> 그 외의 단위는 문자열로 입력해야한다. 「예) `fontSize: "3rem"`」
     - `background-color`와 같이 `-`가 들어간 속성은 `backgroundColor`과 같이 CamelCase 형태로 작성해야 한다.
 
       ```javascript
