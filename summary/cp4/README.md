@@ -1,0 +1,62 @@
+# 4. 조건부 렌더링 & 스타일링
+
+> _References_ <br> https://react.vlpt.us/basic/06-conditional-rendering.html
+
+## 📕 주로 배운 내용
+
+- ### 조건부 렌더링
+
+  - JSX 코드 내부에 **논리 연산자** 나 **삼항 연산자** 를 사용하면 조건에 따라 렌더링을 조작할 수 있다.
+
+  - 논리 연산자 : `isTrue && true`
+
+    ```javascript
+    return (
+      {isVip && <b>{name}님 께서는 현재 VIP 고객이십니다.</b>}
+    );
+    ```
+
+  - 삼항 연산자 : `isTrue ? true : false`
+
+    ```javascript
+    return (
+      {isVip ?
+        <b>{name}님 께서는 현재 VIP 고객이십니다.</b> :
+        <b>{name}님 께서는 현재 일반 고객이십니다.</b>
+      }
+    );
+    ```
+
+- ### 조건부 스타일링
+
+  - 삼항 및 조건연산자로 **조건부 스타일링**도 가능하다.
+  - 객체로 스타일링을 하는 **인라인 스타일링**일 경우에만 해당한다.
+
+    ```javascript
+    const style = {
+      cursor: "pointer",
+      color: user.active ? "green" : "black",
+    };
+    ```
+
+    ```javascript
+    return (
+      <div>
+        <b style={style}>{user.username}</b>
+      </div>
+    );
+    ```
+
+<br>
+
+- ### `<Component isTrue={true} />` **=** `<Component isTrue />`
+
+  - props의 값 셋팅을 생략하면 `true`로 자동 셋팅된다.
+
+    ```javascript
+    // 둘 다 같은 코드이다.
+    return (
+        {/* <Hello name="Uncyclocity" isVIP={true} /> */}
+        <Hello name="Uncyclocity" isVIP />
+      );
+    ```

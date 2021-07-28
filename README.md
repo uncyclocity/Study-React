@@ -1,58 +1,38 @@
-# 💻 React.js 개발자 준비
+# 💻 React.js 기본 문법 정리
 
-프론트 개발자로의 첫 걸음🏃‍♂️
+Front-End 엔지니어로 비상하기 위한 <br> 백괴의 첫 도약🐤
 
 ## 📃 개요
 
-- Front-End 엔지니어로 나아가기 위해 React.js를 학습한 내용을 정리하는 레포입니다.
-- 학습하면서 작성한 코드 및 배운 내용을 정리한 마크다운 문서가 담겨 있습니다.
-- 각 마크다운 문서는 수 차례의 수정 이후 velog에 업로드 할 계획입니다.
+- Front-End 엔지니어로 나아가기 위해 **React.js 문법을 학습한 내용**을 정리한 레포입니다.
+- **학습하면서 작성한 코드**와 **배운 내용을 정리한 마크다운 문서**가 담겨 있습니다.
+- 각 마크다운 문서는 약간의 수정 후 <a href="https://velog.io/@uncyclocity">개인 velog</a>에 업로드 할 계획입니다.
 
 ## 📔 규칙
 
-- 각 챕터의 순서 및 제목은 기본적으로 <a href="https://react.vlpt.us/">"벨로퍼트와 함께하는 모던 리액트"</a> 문서를 기준으로 두고 있으나, 그 외에도 다양한 문서를 참고하고 있는 만큼 학습 한 내용에 따라 약간의 차이가 존재합니다.
-- 2021년 7월 기준 꾸준히 업데이트 중에 있으며, 현재 진도에 따라 목차가 추차됩니다.
+- 링크가 제공되는 `summary` 디렉터리 내부의 챕터들은 정리가 완료 된 챕터입니다.
+- 아직 정리가 완료되지 않은 챕터는 `unprocessed` 디렉터리 내부에 있으며, 2021년 7월 기준 차례대로 정리가 진행중입니다.
+- 정리 내용 수정 요청은 seongbeom_lee@kakao.com으로 부탁드립니다.
 
 ## 🗂 목차
 
-- 1장. 리액트 입문
-  - <span>1. 리액트는 어쩌다 만들어졌을까?</span>
-  - <span>2. 작업환경 준비</span>
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/1-03_first-component">3. 나의 첫번째 리액트 컴포넌트</a>
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/1-04_jsx">4. JSX</a>
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/1-05_props">5. props 를 통해 컴포넌트에게 값 전달하기</a>
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/1-06_conditional-rendering">6. 조건부 렌더링</a>
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/1-07_usestate">7. useState 를 통해 컴포넌트에서 바뀌는 값 관리하기</a>
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/1-08_manage-input">8. input 상태 관리하기</a>
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/1-09_multiple_inputs">9. 여러개의 input 상태 관리하기</a>
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/1-10_useref">10. useRef 로 특정 DOM 선택하기</a>
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/1-11_render-array">11. 배열 렌더링하기</a>
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/1-12%7E15_array-modify">1-12~15. 배열 요소의 추가/삭제/수정</a>
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/1-16_useeffect">16. useEffect를 사용하여 마운트/언마운트/업데이트시 할 작업 설정하기</a>
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/1-17_usememo">17. useMemo 를 사용하여 연산한 값 재사용하기</a>
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/1-18_usecallback">18. useCallback 을 사용하여 함수 재사용하기</a>
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/1-19_react.memo">19. React.memo 를 사용한 컴포넌트 리렌더링 방지</a>
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/1-20_usereducer">20. useReducer 를 사용하여 상태 업데이트 로직 분리하기</a>
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/1-21_custom-hook">21. 커스텀 Hooks 만들기</a>
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/1-22_context-dispatch">22. Context API 를 사용한 전역 값 관리</a>
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/1-23_immer">23. Immer 를 사용한 더 쉬운 불변성 관리</a>
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/1-24_class-component">24. 클래스형 컴포넌트</a>
-  - <span>25. LifeCycle Method</span>
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/1-26_componentdidcatch">26. componentDidCatch 로 에러 잡아내기</a>
-- 2장. 리액트 컴포넌트 스타일링하기
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/2-01_sass">1. Sass</a>
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/2-02_css-module">2. CSS Module</a>
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/2-03_styled-components">3. styled-components</a>
-- <a href="https://github.com/uncyclocity/react_todoList">3장. 멋진 투두리스트 만들기 (별도 레포로 분리)</a>
-- 4장. API 연동하기
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/4-01~02_basic">1~2. API 연동의 기본</a>
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/4-03_useasync">3. useAsync 커스텀 Hook 만들어서 사용하기</a>
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/4-04_react-async">4. react-async 로 요청 상태 관리하기</a>
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/4-05-1_using-with-context">5-1. Context 와 함께 사용하기(1)</a>
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/4-05-2_using-with-context">5-2. Context 와 함께 사용하기(2)</a>
-- 5장. 리액트 라우터
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/5-01_concepts">1. 프로젝트 준비 및 기본적인 사용법</a>
-  - <a href="https://github.com/uncyclocity/study_react/tree/main/5-02_params-and-query">2. 파라미터와 쿼리</a>
+- <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp1">1. CRA 프로젝트와 컴포넌트의 기본 개념</a>
+- <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp2">2. JSX의 특성</a>
+- <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp3">3. props를 통해 컴포넌트에게 값 전달하기</a>
+- <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp4">4. 조건부 렌더링 & 스타일링</a>
+- <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp5">5. useState를 통한 상태 관리 & 이벤트 핸들링</a>
+- <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp6">6. 이벤트 객체로 input 상태 관리하기</a>
+- <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp7">7. 여러개의 input 상태 관리하기</a>
+- <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp8">8. useRef 활용하기</a>
+- <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp9">9. 배열 렌더링하기</a>
+- <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp10">10. 배열의 동적 업데이트</a>
+- <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp11">11. useEffect 알아보기</a>
+- <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp12">12. useMemo 를 사용하여 연산한 값 재사용하기</a>
+- <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp13">13. useCallback 을 사용하여 함수 재사용하기</a>
+- <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp14">14. React.memo로 컴포넌트 리렌더링 최소화하기</a>
+- <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp15">15. useReducer 를 사용하여 상태 업데이트 로직 분리하기</a>
+- <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp16">16. 커스텀 Hook 만들기</a>
+- <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp17">17. Context API 를 사용한 전역 값 관리</a>
 
 > ### Refrences
 >
