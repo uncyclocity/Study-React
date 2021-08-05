@@ -40,7 +40,7 @@ Front-End 엔지니어로 비상하기 위한 <br> 백괴의 첫 도약🐤
 >
 > <a href="https://xiubindev.tistory.com/category/Study/React">"Study/React"</a> _.xiubindev_
 >
-> <a href="https://velog.io/@lua_aw/201105-2-React-보일러플레이트-CRACreate-React-App">(2) React 보일러 플레이트 Boiler Plate CRA(Create-React-App)</a> _.IUA_
+> <a href="https://velog.io/@lua_aw/201105-2-React-보일러플레이트-CRACreate-React-App">"(2) React 보일러 플레이트 Boiler Plate CRA(Create-React-App)"</a> _.IUA_
 >
 > <a href="https://webigotr.tistory.com/293">"React에서 불변성을 지켜야 하는 이유"</a> _.webigotr_
 >
