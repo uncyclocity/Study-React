@@ -11,13 +11,14 @@ Front-End 엔지니어로 비상하기 위한 <br> 백괴의 첫 도약🐤
 ## 📔 규칙
 
 - 링크가 제공되는 `summary` 디렉터리 내부의 챕터들은 정리가 완료 된 챕터입니다.
+- 'velog판 보기' 링크가 제공되는 챕터는 velog 정리까지 완료 된 챕터입니다.
 - 아직 정리가 완료되지 않은 챕터는 `unprocessed` 디렉터리 내부에 있으며, 시간이 되는 대로 차례대로 정리 예정입니다.
-- 정리 내용 수정 요청은 seongbeom_lee@kakao.com으로 부탁드립니다.
+- 잘못 된 내용에 대한 수정 요청은 seongbeom_lee@kakao.com으로 부탁드립니다.
 
 ## 🗂 목차
 
-- <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp1">1. CRA 프로젝트와 컴포넌트의 기본 개념</a>
-- <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp2">2. JSX의 특성</a>
+- <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp1">1. CRA 프로젝트와 컴포넌트의 기본 개념</a> | <a href="https://velog.io/@uncyclocity/React-1.-CRA-프로젝트-생성-컴포넌트의-기본-개념">Velog판 보기</a>
+- <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp2">2. JSX의 특성</a> | <a href="https://velog.io/@uncyclocity/2.-JSX에-대한-특성">Velog판 보기</a>
 - <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp3">3. props를 통해 컴포넌트에게 값 전달하기</a>
 - <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp4">4. 조건부 렌더링 & 스타일링</a>
 - <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp5">5. useState를 통한 상태 관리 & 이벤트 핸들링</a>
