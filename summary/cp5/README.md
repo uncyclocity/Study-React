@@ -48,23 +48,6 @@
 
 <br>
 
-- ### JSX에서의 이벤트 핸들링
-
-  - JSX에서 이벤트 핸들러 명칭은 **`on` 다음의 글자를 대문자로 표기한다.** <br> `onclick` ➡ `onClick`
-  - `핸들러={실행할함수}` 형태로 작성한다.
-
-    ```javascript
-    const greeting = () => {
-      console.log("Hello World");
-    };
-
-    return <button onClick={greeting}></button>;
-    ```
-
-  - `onClick={onIncrease()}`와 같이 함수 실행 코드를 넣으면, 이벤트 발생 여부와 상관없이 **렌더링 시점에서 함수 호출**이 이루어진다. <br> 👉 `onClick={onIncrease}`혹은 `onClick={() => onIncrease()}` 형태로 작성해야 하며, **파라미터**를 넘겨주어야 할 경우에는 **후자**로 작성하면 된다.
-
-<br>
-
 - ### 「이벤트 × 상태 관리」 예제
 
   - 예제 내용 : +1/-1 버튼을 눌러 표시되는 숫자를 조절하는 코드
