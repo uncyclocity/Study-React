@@ -22,8 +22,8 @@ Front-End 엔지니어로 비상하기 위한 <br> 백괴의 첫 도약🐤
 - <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp3">3. props를 통해 컴포넌트에게 값 전달하기</a> <a href="https://velog.io/@uncyclocity/React-3.-props를-통해-컴포넌트에-값-전달하기"><img src="https://img.shields.io/badge/Velog에서 보기-4FC08D?style=flat-square&logo=vimeo&logoColor=white"/></a>
 - <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp4">4. 조건부 렌더링 & 스타일링</a> <a href="https://velog.io/@uncyclocity/4.-연산자를-이용한-조건부-렌더링"><img src="https://img.shields.io/badge/Velog에서 보기-4FC08D?style=flat-square&logo=vimeo&logoColor=white"/></a>
 - <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp5">5. useState를 통한 상태 관리 & 이벤트 핸들링</a> <a href="https://velog.io/@uncyclocity/React-5.-useState-Hook을-통한-상태-관리"><img src="https://img.shields.io/badge/Velog에서 보기-4FC08D?style=flat-square&logo=vimeo&logoColor=white"/></a>
-- <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp6">6. 이벤트 객체로 input 상태 관리하기</a>
-- <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp7">7. 여러개의 input 상태 관리하기</a>
+- <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp6">6. 이벤트 객체로 input 상태 관리하기</a> <a href="https://velog.io/@uncyclocity/React-6.-이벤트-객체와-useState를-통해-input-상태-관리하기"><img src="https://img.shields.io/badge/Velog에서 보기-4FC08D?style=flat-square&logo=vimeo&logoColor=white"/></a>
+- <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp7">7. 여러개의 input 상태 관리하기</a> <a href="https://velog.io/@uncyclocity/React-6.-이벤트-객체와-useState를-통해-input-상태-관리하기"><img src="https://img.shields.io/badge/Velog에서 보기-4FC08D?style=flat-square&logo=vimeo&logoColor=white"/></a>
 - <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp8">8. useRef 활용하기</a>
 - <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp9">9. 배열 렌더링하기</a>
 - <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp10">10. 배열의 동적 업데이트</a>
