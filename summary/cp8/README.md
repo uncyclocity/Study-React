@@ -42,7 +42,7 @@
   - 이후, 필요에 따라 해당 ref 속성을 지정한 DOM을 조작할 수 있다. <br> **ref 객체의 `current`** 가 해당 DOM을 가리킨다.
 
     ```javascript
-    refVal.current.focus; // example_input에 포커스 지정
+    refVal.current.focus(); // example_input에 포커스 지정
     ```
 
     ```javascript
