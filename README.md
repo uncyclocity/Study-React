@@ -27,8 +27,8 @@ Front-End 엔지니어로 비상하기 위한 <br> 백괴의 첫 도약🐤
 - <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp8">8. useRef 활용하기</a> <a href="https://velog.io/@uncyclocity/React-React-함수형-컴포넌트에서-ref-활용하기"><img src="https://img.shields.io/badge/Velog에서 보기-4FC08D?style=flat-square&logo=vimeo&logoColor=white"/></a>
 - <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp9">9. 배열 렌더링하기</a> <a href="https://velog.io/@uncyclocity/React-8.-배열-렌더링하기"><img src="https://img.shields.io/badge/Velog에서 보기-4FC08D?style=flat-square&logo=vimeo&logoColor=white"/></a>
 - <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp10">10. 배열의 동적 업데이트</a> <a href="https://velog.io/@uncyclocity/React-9.-배열의-동적-업데이트"><img src="https://img.shields.io/badge/Velog에서 보기-4FC08D?style=flat-square&logo=vimeo&logoColor=white"/></a>
-- <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp11">11. useEffect 알아보기</a>
-- <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp12">12. useMemo 를 사용하여 연산한 값 재사용하기</a>
+- <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp11">11. useEffect 알아보기</a> <a href="https://velog.io/@uncyclocity/React-10.-useEffect를-통한-생명-주기-사용하기"><img src="https://img.shields.io/badge/Velog에서 보기-4FC08D?style=flat-square&logo=vimeo&logoColor=white"/></a>
+- <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp12">12. useMemo 를 사용하여 연산한 값 재사용하기</a> <a href="https://velog.io/@uncyclocity/React-11.-useMemo를-통해-연산-완료된-값-재사용하기"><img src="https://img.shields.io/badge/Velog에서 보기-4FC08D?style=flat-square&logo=vimeo&logoColor=white"/></a>
 - <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp13">13. useCallback 을 사용하여 함수 재사용하기</a>
 - <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp14">14. React.memo로 컴포넌트 리렌더링 최소화하기</a>
 - <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp15">15. useReducer 를 사용하여 상태 업데이트 로직 분리하기</a>
