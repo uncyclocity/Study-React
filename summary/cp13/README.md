@@ -40,7 +40,7 @@
     false
     ```
 
-  - `useCallback`은 deps 내부의 값이 변경되지 않으면 **메모리 주소**를 그대로 유지한다. <br> 👉 다른 함수의 **deps 배열에 들어가는 함수**의 경우 `useCallback`을 사용하는 편이 좋다. <br> **Q.** 만약 `useCallback`을 사용하지 않은 함수를 deps에 넣는다면? <br> **A.** 리렌더링 될 때마다 deps 배열 내부의 함수(메모리 주소)가 변경됨 ➡ 😱리렌더링 무한 루프😱
+  - `useCallback`은 deps 내부의 값이 변경되지 않으면 **메모리 주소**를 그대로 유지한다. <br> 👉 다른 함수의 **deps 배열에 들어가는 함수**의 경우 `useCallback`을 사용하는 편이 좋다.
 
 <br>
 
@@ -51,23 +51,23 @@
     ```javascript
     import React, { useCallback } from "react";
     ```
-
-  - 원하는 **함수**를 넣고, 상태 변경 감지대상인 값을 **deps 배열**에 넣어준다.
-
-    **인자를 넘기지 않을 경우**
-
+    
+  - 콜백함수를 useCallback 함수로 감싸고, deps 배열에 콜백함수에서 사용되는 값들을 넣어주는 형태로 사용한다.
+    
     ```javascript
-    // item 값 : 값 변경 감지만 필요함
-    const exampleFn = useCallback(exampleFn, [item]);
-    ```
+    const onCreate = useCallback(() => {
+      const user = {
+        id: nextId.current,
+        username: username,
+        email: email,
+      };
 
-    **인자를 넘겨 줄 경우 :** 콜백함수 형태로 넣어준다.
+      setUsers([...users, user]);
 
-    ```javascript
-    // item 값 : 값 변경 감지가 필요한 동시에 인자로 넘겨줌
-    const exampleFn = useCallback(() => {
-      exampleFn(item);
-    }, [item]);
+      onInit();
+
+      nextId.current += 1;
+    }, [username, email, users, onInit]);
     ```
 
 <br>
