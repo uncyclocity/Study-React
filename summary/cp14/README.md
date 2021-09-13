@@ -40,7 +40,7 @@
     const Component02 = React.memo(function Component02(props) {...});
     ```
 
-  - props 객체 내부의 특정 값들만 비교하기
+  - 두 번째 파라미터에 props 비교 함수를 넣어 리렌더링의 기준을 정할 수 있다.
 
     - 함수의 인자로 각각 **기존 props**와 **변경 된 props**가 들어간다.
 
