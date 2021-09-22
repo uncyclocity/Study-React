@@ -138,16 +138,16 @@
 
     ```javascript
     users.map(user =>(
-    // key는 각 원소의 고유값으로 지정해야 한다.
-    <User user={user} key={user.id}>
+      // key는 각 원소의 고유값으로 지정해야 한다.
+      <User user={user} key={user.id}>
     ))
     ```
 
-  - 각 원소의 고유값에 해당하는 값이 없을 경우, `map()` 함수의 두 번째 파라미터로 받을 수 있는 `index`값을 사용해도 된다.
+  - 각 원소의 고유값에 해당하는 값이 없을 경우, `map()` 함수의 두 번째 파라미터로 받을 수 있는 `index`값을 사용해도 된다.<br>다만, 어디까지나 배열의 index를 사용하는 것이므로 권장하지 않는다.
 
     ```javascript
     users.map((user, index) =>(
-    <User user={user} key={index}>
+      <User user={user} key={index}>
     ))
     ```
 
