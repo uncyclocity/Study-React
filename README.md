@@ -32,7 +32,7 @@ Front-End 엔지니어로 비상하기 위한 <br> 백괴의 첫 도약🐤
 - <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp13">13. useCallback 을 사용하여 함수 재사용하기</a> <a href="https://velog.io/@uncyclocity/React-12.-useCallback을-통해-함수-재사용하기"><img src="https://img.shields.io/badge/Velog에서 보기-4FC08D?style=flat-square&logo=vimeo&logoColor=white"/></a>
 - <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp14">14. React.memo로 컴포넌트 리렌더링 최소화하기</a> <a href="https://velog.io/@uncyclocity/React-13.-React.memo를-통한-컴포넌트-리렌더링-최소화"><img src="https://img.shields.io/badge/Velog에서 보기-4FC08D?style=flat-square&logo=vimeo&logoColor=white"/></a>
 - <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp15">15. useReducer 를 사용하여 상태 업데이트 로직 분리하기</a> <a href="https://velog.io/@uncyclocity/React-14.-useReducer-Hook을-통한-상태-업데이트-로직-분리"><img src="https://img.shields.io/badge/Velog에서 보기-4FC08D?style=flat-square&logo=vimeo&logoColor=white"/></a>
-- <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp16">16. 커스텀 Hook 만들기</a>
+- <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp16">16. 커스텀 Hook 만들기</a> <a href="https://velog.io/@uncyclocity/React-15.-커스텀-Hook-만들기"><img src="https://img.shields.io/badge/Velog에서 보기-4FC08D?style=flat-square&logo=vimeo&logoColor=white"/></a>
 - <a href="https://github.com/uncyclocity/study_react/tree/main/summary/cp17">17. Context API 를 사용한 전역 값 관리</a>
 
 > ### Refrences
